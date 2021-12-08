@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply p-3 bg-gradient-to-r from-primary-100 to-primary-200 text-white rounded-xl text-center cursor-pointer hover:shadow-md;
+}
+
+.box {
+    @apply w-44 h-44 border-primary-100 border-2 rounded-md flex items-center justify-center;
+}
+
+.header {
+    @apply p-6 bg-gradient-to-r from-primary-100 to-primary-200 text-white font-medium;
+}
+
+.form-input {
+    @apply block mt-1 p-3 border border-black_ori rounded-xl w-full focus:outline-none;
+}
+
+.wrapper-mobile {
+    @apply max-w-mobile mx-auto min-h-screen flex flex-col items-center bg-white;
+}

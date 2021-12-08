@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "build-css": "tailwindcss build resources/css/app.css -o public/css/app.css",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
@@ -10,9 +11,11 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "autoprefixer": "^10.4.0",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.4.4",
+        "tailwindcss": "^2.2.19"
     }
 }
