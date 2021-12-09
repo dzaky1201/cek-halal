@@ -5,9 +5,6 @@
       <x-slot name="title">
         <h1 class="text-lg -ml-6">Tambah Ulasan</h1>
       </x-slot>
-      <x-slot name="subtitle">
-        <h2 class="text-light text-center -ml-6">Admin</h2>
-      </x-slot>
     </x-header>
   
     <div id="product-form" class="mt-10 mb-12 w-11/12">

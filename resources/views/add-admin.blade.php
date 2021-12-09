@@ -1,15 +1,19 @@
-<x-admin-layout>
-    <x-slot name="doc_title">Data Admin</x-slot>
-    <x-header>
-      <x-slot name="url">/admin</x-slot>
-      <x-slot name="title">
-        <h1 class="text-lg -ml-6">Data Admin</h1>
-      </x-slot>
-      <x-slot name="subtitle">
-        <h2 class="text-light text-sm text-center -ml-6">Super Admin</h2>
-      </x-slot>
-    </x-header>
-  
+@extends('layouts.admin-layout')
+
+@section('doc_title')
+  <title>Tambah Admin Baru</title>
+@endsection
+
+@section('content')
+    @extends('layouts.header')
+
+    @section('title')
+      <h1 class="text-lg -ml-6">Tambahkan Admin</h1>
+    @endsection
+    @section('subtitle')
+      <h2 class="text-sm ml-2">Super Admin</h1>
+    @endsection
+
     <div id="admin-form" class="mt-10 mb-12 w-11/12">
       <form class="mx-2" action="" method="post">
           <div class="mt-4">
@@ -43,9 +47,8 @@
           <button class="btn w-full mt-32" type="submit" name="submit">Tambahkan Admin</button>
       </form>
     </div>
-    <x-slot name="script">
-        <script src="{{ asset('js/functions.js') }}"></script>
-    </x-slot>
-</x-admin-layout>
 
-  
+    @section('scripts')
+      <script src="{{ asset('js/functions.js') }}"></script>
+    @endsection
+@endsection

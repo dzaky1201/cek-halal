@@ -1,15 +1,15 @@
-<x-admin-layout>
-    <x-slot name="doc_title">Data Perusahaan</x-slot>
-    <x-header>
-      <x-slot name="url">/admin</x-slot>
-      <x-slot name="title">
-        <h1 class="text-lg -ml-6">Data Perusahaan</h1>
-      </x-slot>
-      <x-slot name="subtitle">
-        <h2 class="text-light text-center -ml-6">Admin</h2>
-      </x-slot>
-    </x-header>
-  
+@extends('layouts.admin-layout')
+
+@section('doc_title')
+  <title>Tambah Perusahaan</title>
+@endsection
+
+@section('content')
+    @extends('layouts.header')
+    @section('title')
+      <h1 class="text-lg -ml-6">Tambah Perusahaan</h1>
+    @endsection
+
     <div id="company-form" class="mt-10 mb-12 w-11/12">
       <form class="mx-2" action="" method="post">
           <div class="mt-4">
@@ -24,10 +24,8 @@
               placeholder="Masukkan Alamat Website Perusahaan(URL)"
               required>
           </div>
-          <button class="btn w-full mt-32" type="submit" name="submit">Tambahkan Ulasan</button>
+          <button class="btn w-full mt-32" type="submit" name="submit">Tambahkan Perusahaan</button>
       </form>
     </div>
-  
-  </x-admin-layout>
-  
+@endsection
   

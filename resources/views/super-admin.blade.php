@@ -1,9 +1,9 @@
 <x-admin-layout>
-    <x-slot name="doc_title">Halaman Utama Super Admin</x-slot>
+    <x-slot name="doc_title">Dashboard Super Admin</x-slot>
     
     <x-header>
       <x-slot name="url">/</x-slot>
-      <x-slot name="title">Super Admin</x-slot>
+      <x-slot name="title">Dashboard Super Admin</x-slot>
     </x-header>
   
     <div id="menu-wrapper" class="m-auto lg:mt-24 mx-auto">
