@@ -9,7 +9,7 @@
 }
 
 .box {
-    @apply w-44 h-44 border-primary-100 border-2 rounded-md flex items-center justify-center;
+    @apply w-28 h-28 bg-gradient-to-r from-primary-100 to-primary-200 flex items-center justify-center;
 }
 
 .header {
@@ -17,7 +17,7 @@
 }
 
 .form-input {
-    @apply block mt-1 p-3 border border-black_ori rounded-xl w-full focus:outline-none;
+    @apply block p-3 border border-black_ori rounded-xl w-full focus:outline-none;
 }
 
 .wrapper-mobile {

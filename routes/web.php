@@ -20,3 +20,23 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin-main');
 });
+
+Route::get('/admin/add/new-admin', function () {
+    return view('add-admin');
+});
+
+Route::get('/admin/add/company', function () {
+    return view('add-company');
+});
+
+Route::get('/admin/add/product', function () {
+    return view('add-product-desc');
+});
+
+Route::get('/admin/add/review', function () {
+    return view('add-product-review');
+});
+
+Route::get('/super-admin', function () {
+    return view('super-admin');
+});
