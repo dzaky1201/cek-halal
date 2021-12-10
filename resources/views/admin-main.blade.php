@@ -53,6 +53,7 @@
       </a>
     </div>
   </div>
+
   @section('scripts')
       <script src="{{ asset('js/functions.js') }}"></script>
   @endsection
