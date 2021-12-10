@@ -1,45 +1,53 @@
-@extends('layout.app')
+@extends('layouts.admin-layout')
+
+@section('doc_title')
+<title>Tambah Admin Baru</title>
+@endsection
 
 @section('content')
-<main class="bg-gray-100">
-    <div id="wrapper" class="wrapper-mobile">
-        <div id="logo">
-            <img class="mx-auto mt-28 border-2" src="https://picsum.photos/121" alt="logo">
-        </div>
-        <div id="login-form" class="mt-10 w-11/12">
-            <form action="/register" method="POST" class="form-admin">
-                @csrf
-                <div class="form-admin mx-2">
-                    <label class="font-semibold tracking-wider" for="name">nama lengkap</label>
-                    <input class="form-input" type="text" name="name" id="name" placeholder="Masukkan nama lengkap"
-                        required value="{{old('name')}}">
-                </div>
-                <div class="form-admin mx-2">
-                    <label class="font-semibold tracking-wider" for="username">Username</label>
-                    <input class="form-input" type="text" name="username" id="username" placeholder="Masukkan username"
-                        required value="{{old('username')}}">
-                </div>
-                <div class="form-admin mx-2">
-                    <label class="font-semibold tracking-wider" for="email">email</label>
-                    <input class="form-input" type="text" name="email" id="email" placeholder="Masukkan email" required
-                        value="{{old('email')}}">
-                </div>
-                <div class="form-admin mt-7 mx-2 relative">
-                    <label class="font-semibold tracking-wider" for="password">Password</label>
-                    <input id="passwordInput" class="form-input z-0" type="password" name="password" id="password"
-                        placeholder="Masukkan password" required>
-                    <img id="eye" src="{{ asset('/src/icons/eye.svg') }}" ]
-                        class="absolute top-10 right-3 cursor-pointer w-8" onclick="showPassword()" alt="view password">
-                    <img id="eye-closed" src="{{ asset('/src/icons/eye_close.svg') }}" ]
-                        class="absolute top-10 right-3 cursor-pointer w-8 hidden" onclick="showPassword()"
-                        alt="view password">
-                </div>
-                <div class="form-admin text-center mb-72 lg:mb-36">
-                    <input class="btn font-medium mt-20 w-8/12" type="submit" value="register">
-                </div>
-            </form>
-        </div>
-    </div>
-</main>
-<script src="{{ asset('js/showPassword.js') }}"></script>
+@extends('layouts.header')
+
+@section('title')
+<h1 class="text-lg -ml-6">Tambahkan Admin</h1>
 @endsection
+@section('subtitle')
+<h2 class="text-sm ml-2">Super Admin</h1>
+    @endsection
+
+    <div id="admin-form" class="mt-10 mb-12 w-11/12">
+        <form class="mx-2" action="/register" method="POST">
+            <div class="mt-4">
+                <label class="font-medium tracking-wider" for="admin_name">Nama</label>
+                <input class="mt-2 form-input" type="text" name="admin_name" id="admin_name"
+                    placeholder="Masukkan nama Admin" required>
+            </div>
+            <div class="mt-4">
+                <label class="font-medium tracking-wider" for="email">E-mail</label>
+                <input class="mt-2 form-input" type="email" name="email" id="email" placeholder="Masukkan E-mail"
+                    required>
+            </div>
+            <div class="mt-4 relative">
+                <label class="font-semibold tracking-wider" for="password">Password</label>
+                <input id="passwordInput" class="form-input z-0" type="password" name="password" id="password"
+                    placeholder="Masukkan password" required>
+                <img id="eye" src="{{ asset('/src/icons/eye.svg') }}" ]
+                    class="absolute top-8 right-3 cursor-pointer w-8" onclick="showPassword()" alt="view password">
+                <img id="eye-closed" src="{{ asset('/src/icons/eye_close.svg') }}" ]
+                    class="absolute top-8 right-3 cursor-pointer w-8 hidden" onclick="showPassword()"
+                    alt="view password">
+            </div>
+            <div class="mt-4">
+                <label class="font-medium tracking-wider" for="role">Role:</label>
+                <select class="mt-2 form-input font-primary font-medium" name="role" id="role">
+                    <option value="admin">Admin</option>
+                    <option value="super-admin">Super Admin</option>
+                </select>
+            </div>
+            <button class="btn w-full mt-32" type="submit" name="submit">Tambahkan Admin</button>
+        </form>
+    </div>
+
+    @section('scripts')
+    <script src="{{ asset('js/functions.js') }}"></script>
+    @endsection
+    @endsection
