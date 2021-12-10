@@ -33,6 +33,10 @@ Route::get('/admin/add/review', function () {
     return view('add-product-review');
 });
 
+Route::get('/admin/add/success', function () {
+    return view('add-success');
+});
+
 Route::get('/super-admin', function () {
     return view('super-admin');
 });
