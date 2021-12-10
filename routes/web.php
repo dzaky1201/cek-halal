@@ -38,5 +38,5 @@ Route::get('/super-admin', function () {
 });
 
 Route::get('/super-admin/register', function () {
-    return view('register');
+    return view('add-admin');
 });
