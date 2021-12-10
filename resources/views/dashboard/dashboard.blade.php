@@ -21,16 +21,6 @@
                 <img class="mx-auto" src="{{ asset('/src/icons/Profile.svg') }}" alt="logout">
                 <h3>{{Auth::user()->name}}</h3>
             </button>
-            <div id="dropdown-content" class="absolute hidden bg-gray-200 overflow-auto w-32 z-10 top-20 -right-6">
-                <a class="block p-3 mx-auto no-underline text-black" href="/">
-                    <img class="w-5 h-5 inline" src="{{ asset('/src/icons/Logout.svg') }}" alt="Logout">
-                    Logout
-                </a>
-
-                <form id="logout-form" action="/logout" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
         </div>
     </nav>
 </header>
@@ -67,6 +57,11 @@
 
             </div>
         </a>
+
+        <form action="/logout" method="POST">
+            @csrf
+            <button type="submit">logout</button>
+        </form>
     </div>
 </div>
 @section('scripts')
