@@ -1,13 +1,16 @@
-<x-admin-layout>
-    <x-slot name="doc_title">Tambah Ulasan</x-slot>
-    <x-header>
-      <x-slot name="url">/admin</x-slot>
-      <x-slot name="title">
-        <h1 class="text-lg -ml-6">Tambah Ulasan</h1>
-      </x-slot>
-    </x-header>
-  
-    <div id="product-form" class="mt-10 mb-12 w-11/12">
+@extends('layouts.admin-layout')
+
+@section('doc_title')
+  <title>Tambah Ulasan</title>
+@endsection
+
+@section('content')
+    @extends('layouts.header')
+    @section('title')
+      <h1 class="text-lg -ml-6">Tambah Ulasan</h1>
+    @endsection
+
+    <div id="review-form" class="mt-10 mb-12 w-11/12">
       <form class="mx-2" action="" method="post" enctype="multipart/form-data">
           <div class="mt-4">
             <label class="font-medium tracking-wider" for="product_name">Nama Produk:</label>
@@ -42,13 +45,10 @@
           <div class="mt-4">
             <label class="font-medium tracking-wider" for="source_photo">Foto sumber</label>
             <input class="mt-1 form-input border-dashed" type="file" name="source_photo" id="source_photo" 
-             7 placeholder="Masukkan Foto sumber"
+              7 placeholder="Masukkan Foto sumber"
               required>
           </div>
           <button class="btn w-full mt-32" type="submit" name="submit">Tambahkan Ulasan</button>
       </form>
     </div>
-  
-  </x-admin-layout>
-  
-  
+@endsection

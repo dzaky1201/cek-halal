@@ -22,3 +22,19 @@ function isHalal(value) {
         expDateInput.classList.add("hidden");
     }
 }
+
+// Toggle logout button
+
+function toggleLogout() {
+    document.getElementById("dropdown-content").classList.toggle("hidden");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches("#logout")) {
+        let dropdown = document.getElementById("dropdown-content");
+        if (dropdown.classList.contains("show")) {
+            dropdown.classList.remove("show");
+        }
+    }
+};

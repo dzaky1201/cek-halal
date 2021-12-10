@@ -9,7 +9,7 @@
 }
 
 .box {
-    @apply w-28 h-28 bg-gradient-to-r from-primary-100 to-primary-200 flex items-center justify-center;
+    @apply w-28 h-28 bg-gradient-to-r from-primary-100 to-primary-200 flex items-center justify-center cursor-pointer hover:shadow-lg;
 }
 
 .header {

@@ -21,10 +21,6 @@ Route::get('/admin', function () {
     return view('admin-main');
 });
 
-Route::get('/admin/add/new-admin', function () {
-    return view('add-admin');
-});
-
 Route::get('/admin/add/company', function () {
     return view('add-company');
 });
@@ -39,4 +35,8 @@ Route::get('/admin/add/review', function () {
 
 Route::get('/super-admin', function () {
     return view('super-admin');
+});
+
+Route::get('/super-admin/register', function () {
+    return view('register');
 });

@@ -33537,12 +33537,18 @@ video {
   display: flex;
   height: 7rem;
   width: 7rem;
+  cursor: pointer;
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
   --tw-gradient-from: #209777;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(32, 151, 119, 0));
   --tw-gradient-to: #BEEF71;
+}
+
+.box:hover{
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .header {
