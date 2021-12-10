@@ -9,7 +9,8 @@
     <img class="mx-auto mt-28 border-2" src="https://picsum.photos/121" alt="logo">
 </div>
 <div id="login-form" class="mt-10 w-11/12">
-    <form action="{{route('login')}}" method="POST">
+    <form action="/login" method="POST">
+        @csrf
         <div class="mx-2">
             <label class="font-semibold tracking-wider" for="username">Username</label>
             <input class="form-input" type="text" name="username" id="username" placeholder="Masukkan username"

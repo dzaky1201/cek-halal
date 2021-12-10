@@ -16,15 +16,21 @@
 
     <div id="admin-form" class="mt-10 mb-12 w-11/12">
         <form class="mx-2" action="/register" method="POST">
+            @csrf
             <div class="mt-4">
-                <label class="font-medium tracking-wider" for="admin_name">Nama</label>
-                <input class="mt-2 form-input" type="text" name="admin_name" id="admin_name"
-                    placeholder="Masukkan nama Admin" required>
+                <label class="font-medium tracking-wider" for="name">Nama</label>
+                <input class="mt-2 form-input" type="text" name="name" id="name" placeholder="Masukkan nama Admin"
+                    required value="{{old('name')}}">
+            </div>
+            <div class="mt-4">
+                <label class="font-medium tracking-wider" for="name">username</label>
+                <input class="mt-2 form-input" type="text" name="username" id="username"
+                    placeholder="Masukkan nama username" required value="{{old('username')}}">
             </div>
             <div class="mt-4">
                 <label class="font-medium tracking-wider" for="email">E-mail</label>
                 <input class="mt-2 form-input" type="email" name="email" id="email" placeholder="Masukkan E-mail"
-                    required>
+                    required value="{{old('email')}}">
             </div>
             <div class="mt-4 relative">
                 <label class="font-semibold tracking-wider" for="password">Password</label>
