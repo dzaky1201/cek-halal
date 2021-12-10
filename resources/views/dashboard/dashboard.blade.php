@@ -19,7 +19,7 @@
         <div id="dropdown" class="text-center relative">
             <button onclick="toggleLogout()" id="logout" class="cursor-pointer">
                 <img class="mx-auto" src="{{ asset('/src/icons/Profile.svg') }}" alt="logout">
-                <h3>Fulanah</h3>
+                <h3>{{Auth::user()->name}}</h3>
             </button>
             <div id="dropdown-content" class="absolute hidden bg-gray-200 overflow-auto w-32 z-10 top-20 -right-6">
                 <a class="block p-3 mx-auto no-underline text-black" href="/">
@@ -27,7 +27,9 @@
                     Logout
                 </a>
 
-                <form action="{{route('logout')}}" method="POST">@csrf</form>
+                <form id="logout-form" action="/logout" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </div>
     </nav>
@@ -35,30 +37,36 @@
 
 <div id="menu-wrapper" class="m-auto lg:mt-24 mx-auto">
     <div class="grid grid-cols-2 gap-10">
-        <div class="box rounded-lg flex-col p-2">
-            <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
-            <a class="font-medium text-xs text-white text-center">
+        <a class="font-medium text-xs text-white text-center">
+            <div class="box rounded-lg flex-col p-2">
+                <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
+
                 Tambah Produk
-            </a>
-        </div>
-        <div class="box rounded-lg flex-col p-2">
-            <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
-            <a class="font-medium text-xs text-white text-center">
+
+            </div>
+        </a>
+        <a class="font-medium text-xs text-white text-center">
+            <div class="box rounded-lg flex-col p-2">
+                <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
+
                 Tambah Perusahaan
-            </a>
-        </div>
-        <div class="box rounded-lg flex-col p-2">
-            <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
-            <a class="font-medium text-xs text-white text-center">
+
+            </div>
+        </a>
+        <a class="font-medium text-xs text-white text-center" href="#">
+            <div class="box rounded-lg flex-col p-2">
+                <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
                 Tambah Ulasan
-            </a>
-        </div>
-        <div class="box rounded-lg flex-col p-2">
-            <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/user.svg') }}" alt="User logo">
-            <a class="font-medium text-xs text-white text-center">
+            </div>
+        </a>
+        <a class="font-medium text-xs text-white text-center" href="/register">
+            <div class="box rounded-lg flex-col p-2">
+                <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/user.svg') }}" alt="User logo">
+
                 Tambah Admin
-            </a>
-        </div>
+
+            </div>
+        </a>
     </div>
 </div>
 @section('scripts')

@@ -8,6 +8,9 @@
 <div id="logo">
     <img class="mx-auto mt-28 border-2" src="https://picsum.photos/121" alt="logo">
 </div>
+@if (session()->has('pesan'))
+<h1>{{session('pesan')}}</h1>
+@endif
 <div id="login-form" class="mt-10 w-11/12">
     <form action="/login" method="POST">
         @csrf
