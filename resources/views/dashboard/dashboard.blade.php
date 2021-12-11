@@ -8,25 +8,18 @@
 @section('content')
 <header class="w-full bg-bg_large relative">
     <nav class="header max-w-mobile mx-auto flex justify-between items-center">
-        <a href="/dashboard">
-            <svg width="32" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M46.6933 10.3201L41.9466 5.6001L15.5733 32.0001L41.9733 58.4001L46.6933 53.6801L25.0133 32.0001L46.6933 10.3201Z"
-                    fill="#fff" />
-            </svg>
-        </a>
         <h1 class="text-lg -mr-6">Dashboard Admin</h1>
-
-        <div id="dropdown" class="text-center relative">
-            <button onclick="toggleLogout()" id="logout" class="cursor-pointer">
-                <img class="mx-auto" src="{{ asset('/src/icons/Profile.svg') }}" alt="logout">
-                <h3>{{Auth::user()->name}}</h3>
-            </button>
+        <div class="flex">
+            <img class="mx-auto" src="{{ asset('/src/icons/Profile.svg') }}" alt="logout">
+            <div class="ml-1">
+                <h3 class="text-sm">{{Auth::user()->name}}</h3>
+                <h4 class="text-xs">{{Auth::user()->role}}</h4>
+            </div>
         </div>
     </nav>
 </header>
 
-<div id="menu-wrapper" class="m-auto lg:mt-24 mx-auto">
+<div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
         <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
             <div class="box rounded-lg flex-col p-2">
@@ -59,11 +52,15 @@
             </div>
         </a>
 
-        <form action="/logout" method="POST">
-            @csrf
-            <button type="submit">logout</button>
-        </form>
     </div>
+    <form action="/logout" method="POST">
+        @csrf
+        <button
+            class="p-2 mb-4 w-full bg-lavender_rose text-white rounded-xl text-center cursor-pointer hover:shadow-md mt-32"
+            type="submit" name="submit">
+            Logout
+        </button>
+    </form>
 </div>
 @if (session()->has('pesan'))
 <div id="modal"
