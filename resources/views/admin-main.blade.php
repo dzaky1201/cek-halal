@@ -7,7 +7,7 @@
 @section('content')
   <header class="w-full bg-bg_large relative">
     <nav class="header max-w-mobile mx-auto flex justify-between items-center">
-       <h1 class="text-lg -mr-6">Admin</h1>
+       <h1 class="text-lg -mr-6">Dashboard Admin</h1>
         <div class="flex">
           <img class="mx-auto" src="{{ asset('/src/icons/Profile.svg') }}" alt="logout">
           <div class="ml-1">
@@ -18,7 +18,7 @@
     </nav>
   </header>
 
-  <div id="menu-wrapper" class="m-auto lg:mt-24 mx-auto">
+  <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
       <div class="box rounded-lg flex-col p-2">
         <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
@@ -32,19 +32,6 @@
           Tambah Perusahaan
         </a>
       </div>
-      {{-- Layout Super Admin --}}
-      {{-- <div class="box rounded-lg flex-col p-2">
-        <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
-        <a class="font-medium text-xs text-white text-center">
-          Tambah Ulasan
-        </a>
-      </div>
-      <div class="box rounded-lg flex-col p-2">
-        <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/user.svg') }}" alt="User logo">
-        <a class="font-medium text-xs text-white text-center">
-          Tambah Admin
-        </a>
-      </div> --}}
     </div>
     <div class="box rounded-lg flex-col p-2 mt-10 mx-auto">
       <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
@@ -53,7 +40,7 @@
       </a>
     </div>
     <button 
-    class="p-2 w-full bg-lavender_rose text-white rounded-xl text-center cursor-pointer hover:shadow-md mt-32" 
+    class="p-2 mb-4 w-full bg-lavender_rose text-white rounded-xl text-center cursor-pointer hover:shadow-md mt-32" 
     type="submit" name="submit">
       Logout
     </button>

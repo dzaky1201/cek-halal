@@ -38,7 +38,7 @@ Route::get('/admin/add/success', function () {
 });
 
 Route::get('/super-admin', function () {
-    return view('super-admin');
+    return view('dashboard/super-admin');
 });
 
 Route::get('/super-admin/register', function () {
