@@ -30,11 +30,13 @@
       </form>
     </div>
 
-        <!--Open modal button-->
+    <!--Open modal button-->
+    {{-- modal button bisa dihapus nanti, ini untuk contoh aja mas untuk ngeliat modalnya --}}
     <div>    
-      <button id="buttonmodal" class="focus:outline-none p-2 bg-blue-600 text-white bg-opacity-75 rounded-lg ring-4 ring-indigo-300 mb-10" type="button">Open modal</button>
+      <button id="buttonmodal" onclick="showModal()" class="focus:outline-none p-2 bg-blue-600 text-white bg-opacity-75 rounded-lg ring-4 ring-indigo-300 mb-10" type="button">Open modal</button>
     </div>
 
+    {{-- gunakan fungsi showModal() untuk menampilkan modal --}}
     <div id="modal"
       class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform scale-0 transition-transform duration-300">
       <!-- Modal content -->
