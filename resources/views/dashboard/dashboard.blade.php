@@ -4,10 +4,11 @@
 <title>Dashboard Super Admin</title>
 @endsection
 
+
 @section('content')
 <header class="w-full bg-bg_large relative">
     <nav class="header max-w-mobile mx-auto flex justify-between items-center">
-        <a href="@yield('path', '/')">
+        <a href="/dashboard">
             <svg width="32" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M46.6933 10.3201L41.9466 5.6001L15.5733 32.0001L41.9733 58.4001L46.6933 53.6801L25.0133 32.0001L46.6933 10.3201Z"
@@ -27,7 +28,7 @@
 
 <div id="menu-wrapper" class="m-auto lg:mt-24 mx-auto">
     <div class="grid grid-cols-2 gap-10">
-        <a class="font-medium text-xs text-white text-center">
+        <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
 
@@ -35,7 +36,7 @@
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center">
+        <a class="font-medium text-xs text-white text-center" href="{{route('companies.create')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
 
@@ -43,7 +44,7 @@
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="#">
+        <a class="font-medium text-xs text-white text-center" href="{{route('reviews.create')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
                 Tambah Ulasan
@@ -64,6 +65,27 @@
         </form>
     </div>
 </div>
+@if (session()->has('pesan'))
+<div id="modal"
+    class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform scale-0 transition-transform duration-300 scale-100">
+    <!-- Modal content -->
+    <div class="bg-white w-64 h-42 border-2 rounded-lg border-primary-100">
+        <header class="header rounded-tr-lg rounded-tl-lg"></header>
+        <div class="flex flex-col p-3 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="#209777">
+                <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+            </svg>
+            <h1 class="text-center text-lg font-medium mt-2">{{session('pesan')}}</h1>
+            <button id="closebutton" type="button"
+                class="bg-primary-100 rounded-xl text-white text-center cursor-pointer hover:shadow-md px-4 py-3 mb-2 mt-6 focus:outline-none">
+                Tutup
+            </button>
+        </div>
+    </div>
+</div>
+@endif
 @section('scripts')
 <script src="{{ asset('js/functions.js') }}"></script>
 @endsection

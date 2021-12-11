@@ -1,3 +1,17 @@
+// modal function
+const button = document.getElementById("buttonmodal");
+const closebutton = document.getElementById("closebutton");
+const modal = document.getElementById("modal");
+
+closebutton.addEventListener("click", () =>
+    modal.classList.remove("scale-100")
+);
+
+function showModal() {
+    modal.classList.add("scale-100");
+}
+
+//
 function showPassword() {
     let password = document.getElementById("passwordInput");
     let eye = document.getElementById("eye");
@@ -11,6 +25,7 @@ function showPassword() {
     eye_closed.classList.toggle("hidden");
     eye.classList.toggle("hidden");
 }
+
 function isHalal(value) {
     let certificationNumberInput = document.querySelector("#cert_number");
     let expDateInput = document.querySelector("#exp_date");

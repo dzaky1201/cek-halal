@@ -24,7 +24,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.add-company');
     }
 
     /**
