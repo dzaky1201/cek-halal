@@ -17,10 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('company_id');
             $table->string('name');
-            $table->enum('is_halal', ['yes', 'no']);
+            $table->enum('is_halal', ['true', 'false']);
             $table->text('ingredients');
-            $table->string('certification_number');
-            $table->date('expire_date');
+            $table->string('certification_number')->default('tidak ada');
+            $table->string('expire_date')->default('tidak ada');
             $table->string('image')->default('default.jpg');
             $table->timestamps();
         });

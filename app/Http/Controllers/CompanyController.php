@@ -35,7 +35,14 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|unique:companies',
+            'url_website' => 'required'
+        ]);
+
+        Company::create($validateData);
+
+        return redirect('dashboard')->with('pesan', 'Perusahaan berhasil di inputkan');
     }
 
     /**

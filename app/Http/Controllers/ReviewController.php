@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Review;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -24,7 +27,8 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        return view('dashboard.add-review');
+        $products = Product::all();
+        return view('dashboard.add-review', compact('products'));
     }
 
     /**
@@ -35,7 +39,23 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validateReview = $request->validate([
+            'product_id' => 'required',
+            'user_id' => 'required',
+            'content' => 'required',
+            'url_source' => 'required',
+            'image' => 'required|image|file|max:1024|mimes:jpeg,png,jpg',
+        ]);
+
+        if ($request->file('image')) {
+            $validateReview['image'] = $request->file('image')->store('review-images');
+        }
+
+        Review::create($validateReview);
+
+
+        return redirect('dashboard')->with('pesan', 'Ulasan Berhasil Ditambahkan');
     }
 
     /**

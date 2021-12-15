@@ -50,9 +50,9 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'company_id' => 1,
             'name' => 'Indomie Goreng',
-            'is_halal' => 'yes',
+            'is_halal' => 'true',
             'ingredients' => 'tepung, minyak, bawang, dll',
-            'expire_date' => Carbon::create('2021', '12', '11'),
+            'expire_date' => '12-01-2001',
             'certification_number' => 'xxxx',
             'image' => 'default.jpg',
         ]);
@@ -60,9 +60,9 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'company_id' => 1,
             'name' => 'Indomie Goreng Rendang',
-            'is_halal' => 'yes',
+            'is_halal' => 'true',
             'ingredients' => 'tepung, minyak, bawang, dll',
-            'expire_date' => Carbon::create('2021', '12', '11'),
+            'expire_date' => '12-01-2001',
             'certification_number' => 'xxxx',
             'image' => 'default1.jpg',
         ]);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('dashboard.add-product');
+        $companies = Company::all();
+        return view('dashboard.add-product', compact('companies'));
     }
 
     /**
@@ -35,7 +37,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validateProduct = $request->validate([
+            'name' => 'required',
+            'company_id' => 'required',
+            'is_halal' => 'required',
+            'ingredients' => 'required',
+            'image' => 'required|image|file|max:1024|mimes:jpeg,png,jpg',
+        ]);
+
+        if ($request->file('image')) {
+            $validateProduct['image'] = $request->file('image')->store('product-images');
+        }
+
+        Product::create($validateProduct);
+
+
+        return redirect('dashboard')->with('pesan', 'Produk berhasil ditambahkan');
     }
 
     /**
