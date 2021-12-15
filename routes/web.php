@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
+// Admin pages
+
 Route::get('/admin', function () {
     return view('admin-main');
 });
@@ -43,4 +45,10 @@ Route::get('/super-admin', function () {
 
 Route::get('/super-admin/register', function () {
     return view('add-admin');
+});
+
+// App pages
+
+Route::get('/home', function () {
+    return view('app/index');
 });

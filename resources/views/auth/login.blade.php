@@ -33,7 +33,7 @@
     <!--Open modal button-->
     {{-- modal button bisa dihapus nanti, ini untuk contoh aja mas untuk ngeliat modalnya --}}
     <div>    
-      <button id="buttonmodal" onclick="showModal()" class="focus:outline-none p-2 bg-blue-600 text-white bg-opacity-75 rounded-lg ring-4 ring-indigo-300 mb-10" type="button">Open modal</button>
+      <button id="buttonmodal" onclick="showModal()" class="p-6 bg-gradient-to-br from-primary-100 to-primary-200 text-white font-medium" type="button">Open modal</button>
     </div>
 
     {{-- gunakan fungsi showModal() untuk menampilkan modal --}}
