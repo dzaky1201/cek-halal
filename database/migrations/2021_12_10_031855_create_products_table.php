@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id');
+            $table->foreignId('user_id');
             $table->string('name');
             $table->enum('is_halal', ['true', 'false']);
             $table->text('ingredients');

@@ -27,7 +27,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
+        $products = Product::where('is_halal', '=', 'false')->get();
         return view('dashboard.add-review', compact('products'));
     }
 

@@ -22,8 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::resource('/dashboard/registers', RegisterController::class)->middleware('admin');
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -31,6 +30,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('products', ProductController::class);
-Route::resource('reviews', ReviewController::class);
-Route::resource('companies', CompanyController::class);
+Route::resource('/dashboard/products', ProductController::class)->middleware('auth');
+Route::resource('/dashboard/reviews', ReviewController::class)->middleware('auth');
+Route::resource('/dashboar/companies', CompanyController::class)->middleware('auth');

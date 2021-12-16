@@ -17,6 +17,7 @@
             <label class="font-medium tracking-wider" for="name">Nama Produk</label>
             <input class="mt-2 form-input" type="text" name="name" id="name" placeholder="Masukkan nama produk" required
                 value="{{old('name')}}">
+            <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
         </div>
         <div class="mt-4">
             <label class="font-medium tracking-wider" for="company_id">Pilih Perusahaan:</label>

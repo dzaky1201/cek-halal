@@ -18,7 +18,8 @@
         </div>
     </nav>
 </header>
-
+{{-- display for super-admin --}}
+@can('admin')
 <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
         <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
@@ -43,7 +44,8 @@
                 Tambah Ulasan
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="/register">
+
+        <a class="font-medium text-xs text-white text-center" href="{{route('registers.create')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/user.svg') }}" alt="User logo">
 
@@ -62,6 +64,48 @@
         </button>
     </form>
 </div>
+@endcan
+{{-- display for super-admin --}}
+
+{{-- display for admin --}}
+<div id="menu-wrapper" class="mt-24 mx-auto mb-10">
+    <div class="grid grid-cols-2 gap-10">
+        <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
+            <div class="box rounded-lg flex-col p-2">
+                <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
+
+                Tambah Produk
+
+            </div>
+        </a>
+        <a class="font-medium text-xs text-white text-center" href="{{route('companies.create')}}">
+            <div class="box rounded-lg flex-col p-2">
+                <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
+
+                Tambah Perusahaan
+
+            </div>
+        </a>
+    </div>
+    <a class="font-medium text-xs text-white text-center" href="{{route('reviews.create')}}">
+        <div class="box rounded-lg flex-col p-2 mt-10 mx-auto">
+            <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
+
+            Tambah Ulasan
+
+        </div>
+    </a>
+    <form action="/logout" method="POST">
+        @csrf
+        <button
+            class="p-2 mb-4 w-full bg-lavender_rose text-white rounded-xl text-center cursor-pointer hover:shadow-md mt-32"
+            type="submit" name="submit">
+            Logout
+        </button>
+    </form>
+</div>
+{{-- display for admin --}}
+
 @if (session()->has('pesan'))
 <div id="modal"
     class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform scale-0 transition-transform duration-300 scale-100">

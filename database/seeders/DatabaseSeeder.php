@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'company_id' => 1,
             'name' => 'Indomie Goreng',
+            'user_id' => 2,
             'is_halal' => 'true',
             'ingredients' => 'tepung, minyak, bawang, dll',
             'expire_date' => '12-01-2001',
@@ -60,6 +61,7 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'company_id' => 1,
             'name' => 'Indomie Goreng Rendang',
+            'user_id' => 1,
             'is_halal' => 'true',
             'ingredients' => 'tepung, minyak, bawang, dll',
             'expire_date' => '12-01-2001',

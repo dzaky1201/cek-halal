@@ -15,7 +15,7 @@
     @endsection
 
     <div id="admin-form" class="mt-10 mb-12 w-11/12">
-        <form class="mx-2" action="/register" method="POST">
+        <form class="mx-2" action="{{route('registers.store')}}" method="POST">
             @csrf
             <div class="mt-4">
                 <label class="font-medium tracking-wider" for="name">Nama</label>

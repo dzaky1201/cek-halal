@@ -40,6 +40,7 @@ class ProductController extends Controller
 
         $validateProduct = $request->validate([
             'name' => 'required',
+            'user_id' => 'required',
             'company_id' => 'required',
             'is_halal' => 'required',
             'ingredients' => 'required',

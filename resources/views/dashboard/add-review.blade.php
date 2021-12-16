@@ -22,12 +22,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="mt-4">
-            <label class="font-medium tracking-wider" for="user_id">Pengulas</label>
-            <input class="mt-1 form-input" type="text" name="user_id" id="user_id" placeholder="{{Auth::user()->name}}"
-                value="{{Auth::user()->id}}" readonly>
-
-        </div>
+        <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
         <div class="mt-4 pr-1">
             <label class="font-medium tracking-wider mb-2" for="content">Ulasan</label>
             <textarea id="review" class="mt-1 form-input resize-x" name="content" rows="6" cols="30"
