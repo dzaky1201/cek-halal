@@ -4,12 +4,11 @@
   <title>Tambah Ulasan</title>
 @endsection
 
-@section('content')
-    @extends('layouts.header')
-    @section('title')
-      <h1 class="text-lg -ml-6">Tambah Ulasan</h1>
-    @endsection
+@section('header')
+  @include('layouts.header', ['title' => "Tambah Ulasan Produk"])
+@endsection
 
+@section('content')
     <div id="review-form" class="mt-10 mb-12 w-11/12">
       <form class="mx-2" action="" method="post" enctype="multipart/form-data">
           <div class="mt-4">

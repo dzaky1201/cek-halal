@@ -29,13 +29,7 @@
         </div>
       </form>
     </div>
-
-    <!--Open modal button-->
-    {{-- modal button bisa dihapus nanti, ini untuk contoh aja mas untuk ngeliat modalnya --}}
-    <div>    
-      <button id="buttonmodal" onclick="showModal()" class="p-6 bg-gradient-to-br from-primary-100 to-primary-200 text-white font-medium" type="button">Open modal</button>
-    </div>
-
+    
     {{-- gunakan fungsi showModal() untuk menampilkan modal --}}
     <div id="modal"
       class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform scale-0 transition-transform duration-300">

@@ -11,13 +11,15 @@
   />
 @endsection
 
-@section('content')
+@section('header')
   <header class="w-full bg-bg_large ">
     <nav class="header max-w-mobile mx-auto flex justify-center items-center">
       <h1 class="text-xl font-semibold font-primary">Cek Halal</h1>
     </nav>
   </header>
+@endsection
 
+@section('content')
   <div id="search-main" class="w-11/12 mb-36">
     <img class="mx-auto mt-14" src="https://picsum.photos/id/1068/121" alt="Logo">
     <div class="mt-10">
@@ -35,63 +37,59 @@
             </span>
           </button>
       </form>
-      <hr class="mt-6 border-t-2 border-gray-secondary">
-
-          {{-- Slider using swiper.js --}}
-      <div class="swiper halal-slider mt-8">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-           <div class="container relative">
-              <img
-                class="rounded-lg object-cover w-full h-56"
-                src="{{ asset('/src/img/slider1-fruit.jpg') }}"
-                alt="image"
-              />
-              
-              <div class="caption px-7 absolute bottom-14 text-white font-semibold font-primary text-sm leading-tight ">
-                "Apa yang dihalalkan oleh Allah dalam Kitab-Nya adalah halal dan apa yang diharamkan Allah di dalam Kitab-Nya adalah haram, dan apa yang didiamkan (tidak diterangkan), maka barang itu termasuk yang dimaafkan.” (HR. Ibnu Majah dan Turmudzi)
-              </div>
-              <p class="px-7 absolute bottom-8 text-white font-primary text-xs italic">
-                Photo by Jimmy Dean via Unsplash
-              </p>
+    </div>
+    <hr class="mt-6 border-t-2 border-gray-secondary">
+    {{-- Slider using swiper.js --}}
+    <div class="swiper halal-slider mt-8">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+              class="rounded-lg object-cover w-full h-56"
+              src="{{ asset('/src/img/slider1-fruit.jpg') }}"
+              alt="image"
+            />
+          <div class="container relative">
+            <div class="slider_caption px-7 absolute bottom-14 ">
+              "Apa yang dihalalkan oleh Allah dalam Kitab-Nya adalah halal dan apa yang diharamkan Allah di dalam Kitab-Nya adalah haram, dan apa yang didiamkan (tidak diterangkan), maka barang itu termasuk yang dimaafkan.” (HR. Ibnu Majah dan Turmudzi)
+            </div>
+            <p class="px-7 absolute bottom-8 slider_attribution">
+              Photo by Jimmy Dean via Unsplash
+            </p>
           </div> 
-          </div>
-          <div class="swiper-slide ">
-           <div class="container relatie">
-              <img
-                class="rounded-lg object-cover w-full h-56 "
-                src="{{ asset('/src/img/slider2-seller.jpg') }}"
-                alt="image"
-              />
-              
-              <div class="caption px-7 absolute bottom-14 text-white font-semibold font-primary text-sm leading-tight">
-                "Halal tidaknya sebuah produk tidak ditentukan oleh penjualnya memakai kerudung atau tidak.” (Tim Cek Halal App)
-              </div>
-              <p class="px-7 absolute bottom-8 text-white font-primary text-xs italic">
-                Photo by Devi Puspita Amartha Yahya via Unsplash
-              </p>
-          </div> 
-          </div>
-          <div class="swiper-slide">
-           <div class="container relative">
-              <img
-                class="rounded-lg object-cover w-full h-56"
-                src="{{ asset('/src/img/slider3-shelves.jpg') }}"
-                alt="image"
-              />
-              
-              <div class="caption px-7 absolute bottom-14 text-white font-semibold font-primary text-sm leading-tight">
-                “Setiap tubuh yang tumbuh dari (makanan) yang haram, maka api neraka lebih utama baginya (lebih layak membakarnya).” 
-                (HR. At-Thabrani).
-              </div>
-              <p class="px-7 absolute bottom-8 text-white font-primary text-xs italic">
-                Photo by Franki Chamaki via Unsplash
-              </p>
-          </div> 
-          </div>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-slide">
+          <img
+          class="rounded-lg object-cover w-full h-56"
+          src="{{ asset('/src/img/slider2-seller.jpg') }}"
+          alt="image"
+          />
+          <div class="container relative">
+            <div class="slider_caption px-7 absolute bottom-14">
+              "Halal tidaknya sebuah produk tidak ditentukan oleh penjualnya memakai kerudung atau tidak.” (Tim Cek Halal App)
+            </div>
+            <p class="px-7 absolute bottom-8 slider_attribution">
+              Photo by Devi Puspita Amartha Yahya via Unsplash
+            </p>
+          </div> 
+        </div>
+        <div class="swiper-slide">
+          <img
+          class="rounded-lg object-cover w-full h-56"
+          src="{{ asset('/src/img/slider3-shelves.jpg') }}"
+          alt="image"
+          />
+          <div class="container relative">
+            <div class="slider_caption px-7 absolute bottom-14">
+              “Setiap tubuh yang tumbuh dari (makanan) yang haram, maka api neraka lebih utama baginya (lebih layak membakarnya).” 
+              (HR. At-Thabrani).
+            </div>
+            <p class="px-7 absolute bottom-8 slider_attribution">
+              Photo by Franki Chamaki via Unsplash
+            </p>
+          </div> 
+        </div>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 
@@ -99,9 +97,13 @@
   @section('scripts')
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    var swiper = new Swiper(".halal-slider", {
+    var swiper = new Swiper('.halal-slider', {
+     // Disable preloading of all images
+    preloadImages: false,
+    // Enable lazy loading
+    lazy: true,
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true,
       },
       keyboard: true,

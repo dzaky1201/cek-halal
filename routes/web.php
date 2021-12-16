@@ -24,19 +24,19 @@ Route::get('/admin', function () {
 });
 
 Route::get('/admin/add/company', function () {
-    return view('add-company');
+    return view('dashboard/add-company');
 });
 
 Route::get('/admin/add/product', function () {
-    return view('add-product-desc');
+    return view('dashboard/add-product-desc');
 });
 
 Route::get('/admin/add/review', function () {
-    return view('add-product-review');
+    return view('dashboard/add-product-review');
 });
 
 Route::get('/admin/add/success', function () {
-    return view('add-success');
+    return view('dashboard/add-success');
 });
 
 Route::get('/super-admin', function () {
@@ -51,4 +51,8 @@ Route::get('/super-admin/register', function () {
 
 Route::get('/home', function () {
     return view('app/index');
+});
+
+Route::get('/search', function () {
+    return view('app/search-products');
 });

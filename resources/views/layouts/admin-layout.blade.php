@@ -10,7 +10,8 @@
 </head>
 
 <body>
-  <main class="bg-gray-100">
+  @yield('header', '')
+  <main class="bg-bg_large">
     <div id="wrapper" class="wrapper-mobile">    
     @yield('content')
     </div>

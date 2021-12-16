@@ -4,12 +4,11 @@
   <title>Tambah Produk</title>
 @endsection
 
-@section('content')
-    @extends('layouts.header')
-    @section('title')
-      <h1 class="text-lg -ml-6">Tambah Produk</h1>
-    @endsection
+@section('header')
+  @include('layouts.header', ['title' => "Tambah Produk"])
+@endsection
 
+@section('content')
     <div id="product-form" class="mt-10 mb-12 w-11/12">
       <form class="mx-2" action="" method="post" enctype="multipart/form-data">
           <div>
