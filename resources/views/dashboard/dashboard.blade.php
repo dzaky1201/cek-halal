@@ -19,7 +19,7 @@
     </nav>
 </header>
 {{-- display for super-admin --}}
-@can('admin')
+@can('super-admin')
 <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
         <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
@@ -68,6 +68,8 @@
 {{-- display for super-admin --}}
 
 {{-- display for admin --}}
+@can('admin')
+
 <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
         <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
@@ -104,6 +106,8 @@
         </button>
     </form>
 </div>
+
+@endcan
 {{-- display for admin --}}
 
 @if (session()->has('pesan'))
