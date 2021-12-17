@@ -20,6 +20,32 @@
     @apply block p-3 border border-black_ori rounded-xl w-full focus:outline-none;
 }
 
+.filterBtn {
+    @apply text-sm font-medium text-white rounded-full text-center cursor-pointer hover:shadow-md;
+}
+
+.label {
+    @apply text-sm font-medium rounded-full text-center tracking-wide uppercase;
+}
+
 .wrapper-mobile {
     @apply max-w-mobile mx-auto min-h-screen flex flex-col items-center bg-white;
+}
+
+.slider_caption {
+    @apply text-white font-semibold font-primary text-sm leading-tight;
+}
+
+.slider_attribution {
+    @apply text-white font-primary text-xs italic;
+}
+
+.swiper-pagination-bullet {
+    opacity: 1;
+    border: white solid 1px;
+    background-color: transparent;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: white !important;
 }
