@@ -4,12 +4,12 @@
 <title>Tambah Admin Baru</title>
 @endsection
 
-@section('content')
-@extends('layouts.header')
-
-@section('title')
-<h1 class="text-lg -ml-6">Tambahkan Admin</h1>
+@section('header')
+@include('layouts.header', ['title' => "Tambah Admin"])
 @endsection
+
+@section('content')
+
 @section('subtitle')
 <h2 class="text-sm ml-2">Super Admin</h1>
     @endsection
