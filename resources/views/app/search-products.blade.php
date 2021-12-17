@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-  @include('layouts.header', ['title' => "Cek Halal"])
+  @include('layouts.header', ['title' => "Cek Halal", 'path' => "/home"])
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
         <input class="form-input border-2 font-primary text-sm h-12 mr-4" type="text" name="product" id="product" 
           placeholder="Masukkan nama produk"
           required>
-          <button class="btn w-32 mx-auto flex items-center justify-center font-primary font-medium" type="submit" name="submit">
+          <button class="btn w-32 mx-auto flex items-center justify-center font-primary font-semibold" type="submit" name="submit">
             Cari
             {{-- search icon --}}
             <span class="ml-2">
@@ -33,23 +33,23 @@
           </svg>          
         Semua
       </button>
-      <button class="filterBtn py-2 px-4 bg-gray-secondary">
+      <button class="filterBtn py-2 px-4 bg-gray-secondary active:bg-primary-100">
         Tersertifikasi Halal
       </button>
-      <button class="filterBtn py-2 px-4 bg-gray-secondary">
+      <button class="filterBtn py-2 px-4 bg-gray-secondary active:bg-primary-100">
         Belum tersertifikasi
       </button>
     </div>
 
     <div id="search-result">
-      <h2 class="ml-2 mt-6">20 Produk ditemukan</h2>
-      <div id="result-container">
-        <div class="card flex p-3 mt-4 mb-3 h-28 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="ml-2 mt-7 font-bold tracking-wider">20 Produk ditemukan</h2>
+      <div id="result-container" class="mt-8">
+        <div class="card flex p-3 mb-3 h-28 bg-gray-100 rounded-lg shadow-md">
           <img class="rounded-lg" src="https://baconmockup.com/90/90" alt="food">
           <div class="ml-3 truncate">
-            <h3 class="font-bold font-primary truncate ...">Mi ayam bakso</h3>
+            <h3 class="font-bold font-primary truncate ...">Mie ayam bakso</h3>
             <h4 class="mt-1 truncate ...">Pt makan enak</h4>
-            <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100 cursor-default" disabled="disabled">
+            <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100" disabled="disabled">
               Tersertifikasi Halal
             </button>
           </div>
@@ -58,8 +58,8 @@
           <img class="rounded-lg" src="https://baconmockup.com/90/90" alt="food">
           <div class="ml-3 truncate">
             <h3 class="font-bold font-primary truncate ...">Mi ayam bakso Lorem ipsum dolor sit amet.</h3>
-            <h4 class="mt-1 truncate ...">Pt makan enak</h4>
-            <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100 cursor-default" disabled="disabled">
+            <h4 class="mt-1 truncate ... text-sm font-medium">Pt makan enak</h4>
+            <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100" disabled="disabled">
               Tersertifikasi Halal
             </button>
           </div>
@@ -68,9 +68,19 @@
           <img class="rounded-lg" src="https://baconmockup.com/90/90" alt="food">
           <div class="ml-3 truncate">
             <h3 class="font-bold font-primary truncate ...">Daging Piglet Lorem ipsum dolor sit amet.</h3>
-            <h4 class="mt-1 truncate ...">Pt makan enak Lorem ipsum dolor sit Lorem, ipsum dolor.</h4>
-            <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100 cursor-default" disabled="disabled">
+            <h4 class="mt-1 truncate ... text-sm font-medium">Pt makan enak Lorem ipsum dolor sit Lorem, ipsum dolor.</h4>
+            <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100" disabled="disabled">
               Tersertifikasi Halal
+            </button>
+          </div>
+        </div>
+        <div class="card flex p-3 mt-4 mb-3 h-28 bg-gray-100 rounded-lg shadow-md">
+          <img class="rounded-lg" src="https://baconmockup.com/90/90" alt="food">
+          <div class="ml-3 truncate">
+            <h3 class="font-bold font-primary truncate ...">Daging Piglet Lorem ipsum dolor sit amet.</h3>
+            <h4 class="mt-1 truncate ... text-sm font-medium">Pt makan enak Lorem ipsum dolor sit Lorem, ipsum dolor.</h4>
+            <button class="label px-3 py-1 mt-1 bg-gray-secondary text-black_ori" disabled="disabled">
+              Belum tersertifikasi
             </button>
           </div>
         </div>

@@ -25,7 +25,7 @@
 }
 
 .label {
-    @apply text-sm font-medium rounded-full text-center tracking-wide uppercase;
+    @apply text-sm font-bold rounded-full text-center tracking-wide uppercase cursor-default;
 }
 
 .wrapper-mobile {

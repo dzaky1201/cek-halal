@@ -56,3 +56,11 @@ Route::get('/home', function () {
 Route::get('/search', function () {
     return view('app/search-products');
 });
+
+Route::get('/detail', function () {
+    return view('app/detail-page');
+});
+
+Route::get('/detail/nonhalal', function () {
+    return view('app/detail-nonHalal');
+});
