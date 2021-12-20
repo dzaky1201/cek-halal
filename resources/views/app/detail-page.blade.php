@@ -12,8 +12,8 @@
 @section('content')
   <div class="mt-14 mb-12 w-11/12">
     <div id="product-detail" class="flex content-center justify-between mx-2">
-      <img class="rounded-lg" src="https://baconmockup.com/160/160" alt="food">
-      <div id="product-desc">
+      <img class="rounded-lg flex-auto max-h-40" src="https://baconmockup.com/160/160" alt="food">
+      <div id="product-desc" class="flex-auto ml-4">
         <div>
           <h1 class="font-bold text-xl font-primary">Indomie - Goreng</h1>
           <h2 class="text-gray-secondary font-medium font-primary text-sm">Pt. mencari cinta sejati</h2>

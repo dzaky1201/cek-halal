@@ -47,6 +47,25 @@ Route::get('/super-admin/register', function () {
     return view('add-admin');
 });
 
+
+// admin-view dashboard 
+
+Route::get('/admin/view/products', function () {
+    return view('dashboard/view-data/products-data');
+});
+
+Route::get('/admin/view/reviews', function () {
+    return view('dashboard/view-data/reviews-data');
+});
+
+Route::get('/admin/view/companies', function () {
+    return view('dashboard/view-data/companies-data');
+});
+
+Route::get('/admin/view/admins', function () {
+    return view('dashboard/view-data/data-admin');
+});
+
 // App pages
 
 Route::get('/home', function () {

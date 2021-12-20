@@ -13,7 +13,7 @@
 
     <div class="mx-auto mt-36 w-10/12 ">
       <div class="flex mb-32 flex-col text-center text-sm w-4/5 mx-auto">
-        <img class="mx-auto w-40 h-40" src="{{ asset('/src/illustrations/char1.svg') }}"" alt="people gesturing gratitude">
+        <img class="mx-auto w-40 h-40" src="{{ asset('/src/illustrations/thanks.svg') }}"" alt="people gesturing gratitude">
         <p class="mt-5">
           Jazakumullahu khairan, data dan informasi telah berhasil ditambahkan, semoga dapat berguna bagi kita semua!
            <span>
