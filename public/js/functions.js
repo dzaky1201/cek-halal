@@ -1,17 +1,19 @@
 // modal function
-const button = document.getElementById("buttonmodal");
-const closebutton = document.getElementById("closebutton");
-const modal = document.getElementById("modal");
+if (
+    document.title == "Dashboard Admin" ||
+    document.title == "Dashboard Super Admin"
+) {
+    const button = document.getElementById("buttonmodal");
+    const closebutton = document.getElementById("closebutton");
+    const modal = document.getElementById("modal");
 
-closebutton.addEventListener("click", () =>
-    modal.classList.remove("scale-100")
-);
+    closebutton.addEventListener("click", () =>
+        modal.classList.remove("scale-100")
+    );
 
-function showModal() {
-    modal.classList.add("scale-100");
+    button.addEventListener("click", () => modal.classList.add("scale-100"));
 }
 
-//
 function showPassword() {
     let password = document.getElementById("passwordInput");
     let eye = document.getElementById("eye");
@@ -38,18 +40,20 @@ function isHalal(value) {
     }
 }
 
-// Toggle logout button
-
-function toggleLogout() {
-    document.getElementById("dropdown-content").classList.toggle("hidden");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (event) {
-    if (!event.target.matches("#logout")) {
-        let dropdown = document.getElementById("dropdown-content");
-        if (dropdown.classList.contains("show")) {
-            dropdown.classList.remove("show");
+if (document.title == "Search Halal Products") {
+    console.log(true);
+    let filters = document.querySelectorAll(".filterBtn");
+    window.onclick = function (event) {
+        if (!event.target.classList.contains("bg-primary-100")) {
+            filters.forEach((filter) => {
+                // remove current active color
+                if (filter.classList.contains("bg-primary-100")) {
+                    filter.classList.remove("bg-primary-100");
+                    filter.classList.add("bg-gray-secondary");
+                }
+            });
+            event.target.classList.remove("bg-gray-secondary");
+            event.target.classList.add("bg-primary-100");
         }
-    }
-};
+    };
+}

@@ -27,16 +27,16 @@
       </form>
     </div>
     <div id="filter" class="flex justify-between mt-6">
-      <button class="filterBtn py-2 px-4 bg-primary-100">
+      <button class="filterBtn text-sm py-2 px-4 bg-primary-100">
         <svg class="inline" width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18.6664 16.0003H45.333L31.973 32.8003L18.6664 16.0003ZM11.333 14.9603C16.7197 21.867 26.6664 34.667 26.6664 34.667V50.667C26.6664 52.1337 27.8664 53.3337 29.333 53.3337H34.6664C36.133 53.3337 37.333 52.1337 37.333 50.667V34.667C37.333 34.667 47.253 21.867 52.6397 14.9603C53.9997 13.2003 52.7464 10.667 50.533 10.667H13.4397C11.2264 10.667 9.97303 13.2003 11.333 14.9603Z" fill="#fff"/>
           </svg>          
         Semua
       </button>
-      <button class="filterBtn py-2 px-4 bg-gray-secondary">
+      <button class="filterBtn text-sm py-2 px-4 bg-gray-secondary">
         Tersertifikasi Halal
       </button>
-      <button class="filterBtn py-2 px-4 bg-gray-secondary">
+      <button class="filterBtn text-sm py-2 px-4 bg-gray-secondary">
         Belum tersertifikasi
       </button>
     </div>
@@ -89,21 +89,6 @@
     </div>
   </div>
   @section('scripts')
-  <script>
-    let filters = document.querySelectorAll('.filterBtn');
-    window.onclick = function (event) {
-      if (!event.target.classList.contains("bg-primary-100")) {
-        filters.forEach(filter => {
-          // remove current active color
-          if(filter.classList.contains('bg-primary-100')) {
-            filter.classList.remove('bg-primary-100')
-            filter.classList.add('bg-gray-secondary')
-          }
-        });
-        event.target.classList.remove('bg-gray-secondary');
-        event.target.classList.add('bg-primary-100');
-      }
-    };
-  </script>
+  <script src="{{ asset('js/functions.js') }}"></script>
   @endsection
 @endsection
