@@ -1,7 +1,8 @@
 // modal function
 if (
     document.title == "Dashboard Admin" ||
-    document.title == "Dashboard Super Admin"
+    document.title == "Dashboard Super Admin" ||
+    document.title == "Halaman Login Admin"
 ) {
     const button = document.getElementById("buttonmodal");
     const closebutton = document.getElementById("closebutton");
