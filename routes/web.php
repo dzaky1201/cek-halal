@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/product-list', [ProductListController::class, 'index']);
 
 Route::resource('/dashboard/products', ProductController::class)->middleware('auth');
 Route::resource('/dashboard/reviews', ReviewController::class)->middleware('auth');
