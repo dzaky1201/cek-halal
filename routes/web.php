@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,73 +20,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('/auth/login');
-});
+Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
 
-// Admin pages
+Route::resource('/dashboard/registers', RegisterController::class)->middleware('admin');
 
-Route::get('/admin', function () {
-    return view('admin-main');
-});
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/admin/add/company', function () {
-    return view('dashboard/add-company');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/admin/add/product', function () {
-    return view('dashboard/add-product-desc');
-});
-
-Route::get('/admin/add/review', function () {
-    return view('dashboard/add-product-review');
-});
-
-Route::get('/admin/add/success', function () {
-    return view('dashboard/add-success');
-});
-
-Route::get('/super-admin', function () {
-    return view('dashboard/super-admin');
-});
-
-Route::get('/super-admin/register', function () {
-    return view('add-admin');
-});
-
-
-// admin-view dashboard 
-
-Route::get('/admin/view/products', function () {
-    return view('dashboard/view-data/products-data');
-});
-
-Route::get('/admin/view/reviews', function () {
-    return view('dashboard/view-data/reviews-data');
-});
-
-Route::get('/admin/view/companies', function () {
-    return view('dashboard/view-data/companies-data');
-});
-
-Route::get('/admin/view/admins', function () {
-    return view('dashboard/view-data/data-admin');
-});
-
-// App pages
-
-Route::get('/home', function () {
-    return view('app/index');
-});
-
-Route::get('/search', function () {
-    return view('app/search-products');
-});
-
-Route::get('/detail', function () {
-    return view('app/detail-page');
-});
-
-Route::get('/detail/nonhalal', function () {
-    return view('app/detail-nonHalal');
-});
+Route::resource('/dashboard/products', ProductController::class)->middleware('auth');
+Route::resource('/dashboard/reviews', ReviewController::class)->middleware('auth');
+Route::resource('/dashboard/companies', CompanyController::class)->middleware('auth');
