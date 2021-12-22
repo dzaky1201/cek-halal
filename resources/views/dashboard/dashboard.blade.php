@@ -115,7 +115,7 @@
     class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform scale-0 transition-transform duration-300 scale-100">
     <!-- Modal content -->
     <div class="bg-white w-64 h-42 border-2 rounded-lg border-primary-100">
-        <header class="header rounded-tr-lg rounded-tl-lg"></header>
+        <header class="header p-4 rounded-tr-lg rounded-tl-lg"></header>
         <div class="flex flex-col p-3 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="#209777">
                 <path fill-rule="evenodd"

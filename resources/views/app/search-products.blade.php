@@ -46,29 +46,30 @@
         </button>
     </div>
     <h2 class="ml-2 mt-6">{{count($products)}} Produk ditemukan</h2>
-    @foreach ($products as $item)
     <div id="search-result">
+    @foreach ($products as $item)
         <div id="result-container">
-            <div class="card flex p-3 mt-4 mb-3 h-28 bg-gray-100 rounded-lg shadow-md">
-                <img class="rounded-lg" src="https://baconmockup.com/90/90" alt="food">
-                <div class="ml-3 truncate">
+            <div class="card flex p-3 mt-4 mb-3 h-30 bg-gray-100 rounded-lg shadow-md">
+                <img class="rounded-lg w-100 h-24" src="{{ asset('src/img/noodle.png') }}" alt="food">
+                <div class="ml-3 truncate w-full pt-1">
                     <h3 class="font-bold font-primary truncate ...">{{$item->name}}</h3>
-                    <h4 class="mt-1 truncate ...">{{$item->company->name}}</h4>
+                    <h4 class="mt-1.5 truncate font-primary font-medium text-sm tracking-wide ...">{{$item->company->name}}</h4>
                     @if ($item->is_halal === 'true')
-                    <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100 cursor-default"
-                        disabled="disabled">
+                    <p class="label py-1 px-3 mt-2 w-min bg-primary-200 text-primary-100">
                         Tersertifikasi Halal
-                    </button>
-                    @endif
-                    <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100 cursor-default"
-                        disabled="disabled">
+                    </p>
+                    @else
+                    <p class="label py-1 px-3 mt-2 w-min bg-gray-secondary text-black_ori">
                         Belum Tersertifikasi Halal
-                    </button>
-
+                    </p>
+                    @endif
                 </div>
             </div>
         </div>
-    </div>
     @endforeach
+    </div>
 </div>
+    @section('scripts')
+        <script src="{{ asset('js/functions.js') }}"></script>
+    @endsection
 @endsection

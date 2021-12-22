@@ -12,17 +12,17 @@
 @section('content')
   <div class="mt-14 mb-12 w-11/12">
     <div id="product-detail" class="flex content-center justify-between mx-2">
-      <img class="rounded-lg max-h-40" src="https://baconmockup.com/160/160" alt="food">
-      <div id="product-desc" class="flex-auto ml-4"">
+      <img class="rounded-lg flex-auto min-w-0 max-h-36 object-cover" src="{{ asset('src/img/noodle.png') }}" alt="food">
+      <div id="product-desc" class="flex-auto ml-5 -mt-1">
         <div>
           <h1 class="font-bold text-xl font-primary">Indomie - Goreng</h1>
           <h2 class="text-gray-secondary font-medium font-primary text-sm">Pt. mencari cinta sejati</h2>
         </div>
-        <div class="rounded-lg border border-primary-100 p-2 mt-3">
-          <h3 class="text-sm italic text-primary-100">Nomer Sertifikat : -</h3>
-          <h3 class="text-sm italic text-primary-100">Expired Date : -</h3>
+        <div class="rounded-lg border border-primary-100 p-2 mt-2.5">
+          <h3 class="text-xs italic text-primary-100">Nomer Sertifikat : -</h3>
+          <h3 class="text-xs italic text-primary-100">Expired Date : -</h3>
         </div>
-        <button class="label px-3 py-1 mt-3.5 text-lg w-full bg-gray-secondary text-black_ori" disabled="disabled">
+        <button class="label px-3 py-1 mt-3 text-lg w-full bg-gray-secondary text-black_ori" disabled="disabled">
           Belum Tersertifikasi
         </button>
       </div>

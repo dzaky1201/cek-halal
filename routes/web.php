@@ -35,3 +35,33 @@ Route::get('/product-list', [ProductListController::class, 'index']);
 Route::resource('/dashboard/products', ProductController::class)->middleware('auth');
 Route::resource('/dashboard/reviews', ReviewController::class)->middleware('auth');
 Route::resource('/dashboard/companies', CompanyController::class)->middleware('auth');
+
+// view for developing branch
+
+// admin-view dashboard 
+
+Route::get('/admin/view/products', function () {
+    return view('dashboard/view-data/products-data');
+});
+
+Route::get('/admin/view/reviews', function () {
+    return view('dashboard/view-data/reviews-data');
+});
+
+Route::get('/admin/view/companies', function () {
+    return view('dashboard/view-data/companies-data');
+});
+
+Route::get('/admin/view/admins', function () {
+    return view('dashboard/view-data/data-admin');
+});
+
+// App pages
+
+Route::get('/detail', function () {
+    return view('app/detail-page');
+});
+
+Route::get('/detail/nonhalal', function () {
+    return view('app/detail-nonHalal');
+});

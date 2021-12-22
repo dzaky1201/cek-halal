@@ -1,20 +1,3 @@
-// modal function
-if (
-    document.title == "Dashboard Admin" ||
-    document.title == "Dashboard Super Admin" ||
-    document.title == "Halaman Login Admin"
-) {
-    const button = document.getElementById("buttonmodal");
-    const closebutton = document.getElementById("closebutton");
-    const modal = document.getElementById("modal");
-
-    closebutton.addEventListener("click", () =>
-        modal.classList.remove("scale-100")
-    );
-
-    button.addEventListener("click", () => modal.classList.add("scale-100"));
-}
-
 function showPassword() {
     let password = document.getElementById("passwordInput");
     let eye = document.getElementById("eye");

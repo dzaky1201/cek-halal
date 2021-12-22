@@ -4,6 +4,13 @@
 <title>Cek Halal Homepage</title>
 @endsection
 
+@section('meta-tag')
+    <meta name="description" 
+          content="Cek halal adalah aplikasi berbasis web untuk melakukan pencarian produk halal
+                   di Indonesia. Data yang didapatkan berasal dari situs resmi MUI.">
+    <meta name="robots" content="index, follow" />
+@endsection
+
 @section('header_link')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 @endsection
