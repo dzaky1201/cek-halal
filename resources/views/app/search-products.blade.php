@@ -52,12 +52,14 @@
     @if ($products->count())
     <h2 class="ml-2 mt-6">{{count($products)}} Produk ditemukan</h2>
     <div id="search-result">
-        @foreach ($products as $item)
-        <div id="result-container">
-            <div class="card flex p-3 mt-4 mb-3 h-28 bg-gray-100 rounded-lg shadow-md">
-                <img class="rounded-lg" src="{{asset('storage/'.$item->image)}}" alt="food">
-                <a href="{{route('product-list.show', ['product' => $item->id])}}"> selengkapnya...</a>
-                <div class="ml-3 truncate">
+      @foreach ($products as $item)
+        <div class="product">
+            <a href="{{route('product-list.show', ['product' => $item->id])}}">
+              <div class="card flex px-3 py-2.5 mt-4 mb-3 bg-gray-100 h-28 rounded-lg shadow-md">                
+                  {{-- Using image placeholder to set image width --}}
+                  {{-- <img class="rounded-lg" src="{{asset('storage/'.$item->image)}}" alt="food"> --}}
+                  <img class="rounded-lg w-24 object-scale-down" src="{{asset('src/img/test-image.png')}}" alt="{{$item->name}}">
+                  <div class="ml-3 truncate">
                     <h3 class="font-bold font-primary truncate ...">{{$item->name}}</h3>
                     <h4 class="mt-1.5 truncate font-primary font-medium text-sm tracking-wide ...">
                         {{$item->company->name}}</h4>
@@ -70,15 +72,23 @@
                         Belum Tersertifikasi Halal
                     </p>
                     @endif
+                  </div>
                 </div>
-            </div>
-        </div>
+              </a>
+          </div>
         @endforeach
         @else
-        <p>Produk tidak tersedia</p>
+        <h2 class="ml-2 mt-6 font-semibold font-primary">{{count($products)}} Produk ditemukan</h2>
+        <div class="w-8/12 mt-20 m-auto text-center">
+          <img class="m-auto w-100 bg-cover" src="{{asset('src/illustrations/not-found.png')}}" alt="Product not found">
+          <h3 class="mt-6 font-semibold font-primary text-sm">
+            Mohon maaf, produk yang anda cari belum tersedia.
+          </h3>
+        </div>
         @endif
     </div>
-    @section('scripts')
-    <script src="{{ asset('js/functions.js') }}"></script>
-    @endsection
-    @endsection
+</div>
+@section('scripts')
+<script src="{{ asset('js/functions.js') }}"></script>
+@endsection
+@endsection

@@ -33,9 +33,9 @@
                 Keterangan: (Status Sertifikasi Halal)
             </label>
             <div class="form-input border-dashed">
-                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="false">
+                <input class="mr-2" type="radio" name="is_halal" value="halal_false" onclick="isHalal(value)">
                 Belum Tersertifikasi<br>
-                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="true">
+                <input class="mr-2" type="radio" name="is_halal" value="halal_true" onclick="isHalal(value)">
                 Tersertifikasi Halal
             </div>
         </div>
@@ -45,16 +45,18 @@
             <input class="mt-2 form-input" type="text" name="certification_number" id="certification_number"
                 placeholder="Masukkan nomor sertifikasi" value="{{old('certification_number')}}">
         </div>
-        <div id=" exp_date" class="mt-4 hidden">
+        <div id="exp_date" class="mt-4 hidden">
             <label class="font-medium tracking-wider" for="expired_date">Expire Date</label>
             <input class="mt-2 form-input" type="text" name="expired_date" id="expired_date" placeholder="xx-xx-xxxx"
                 value="{{old('expired_date')}}">
         </div>
         {{-- end --}}
-        <div class=" mt-4">
-            <label class="font-medium tracking-wider" for="ingredients">Komposisi</label>
-            <input class="mt-2 form-input" type="text" name="ingredients" id="ingredients"
-                placeholder="Masukkan komposisi produk" required value="{{old('ingredients')}}">
+
+        {{-- ini saya ubah input komposisi jadi text area mas --}}
+        <div class="mt-4 pr-1">
+            <label class="font-medium tracking-wider mb-2" for="ingredients">Komposisi</label>
+            <textarea id="ingredients" class="mt-1 form-input resize-x" name="ingredients" rows="4" cols="30"
+                placeholder="Masukkan Komposisi" required value="{{old('ingredients')}}"></textarea>
         </div>
         <div class=" mt-4">
             <label class="font-medium tracking-wider" for="image">Foto produk</label>
