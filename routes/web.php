@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/success', function () {
+    return view('dashboard.add-success');
+});
 
 Route::resource('/dashboard/registers', RegisterController::class)->middleware('admin');
 

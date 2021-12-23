@@ -9,13 +9,8 @@ class ProductListController extends Controller
 {
     public function index()
     {
-        $products = Product::latest();
-
-        if (request('search')) {
-            $products->where('name', 'like', '%' . request('search') . '%');
-        }
         return view('app.search-products', [
-            "products" => $products->get()
+            "products" => Product::latest()->searching(request(['search']))->get()
         ]);
     }
 }

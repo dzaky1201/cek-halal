@@ -54,7 +54,7 @@ class ProductController extends Controller
         Product::create($validateProduct);
 
 
-        return redirect('dashboard')->with('pesan', 'Produk berhasil ditambahkan');
+        return redirect('success')->with('pesan', 'Produk berhasil ditambahkan');
     }
 
     /**

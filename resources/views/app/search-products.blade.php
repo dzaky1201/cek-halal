@@ -14,8 +14,7 @@
         <form class="mx-1 flex items-center" action="/product-list">
             <input class="form-input border-2 font-primary text-sm h-12 mr-4" type="text" name="search" id="search"
                 placeholder="Masukkan nama produk" value="{{request('search')}}" required>
-            <button class="btn w-32 mx-auto flex items-center justify-center font-primary font-medium" type="submit"
-                name="submit">
+            <button class="btn w-32 mx-auto flex items-center justify-center font-primary font-medium" type="submit">
                 Cari
                 {{-- search icon --}}
                 <span class="ml-2">
@@ -29,15 +28,19 @@
         </form>
     </div>
     <div id="filter" class="flex justify-between mt-6 mx-1.5">
-        <button class="filterBtn py-2 px-4 bg-primary-100">
-            <svg class="inline" width="20" height="20" viewBox="0 0 64 64" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M18.6664 16.0003H45.333L31.973 32.8003L18.6664 16.0003ZM11.333 14.9603C16.7197 21.867 26.6664 34.667 26.6664 34.667V50.667C26.6664 52.1337 27.8664 53.3337 29.333 53.3337H34.6664C36.133 53.3337 37.333 52.1337 37.333 50.667V34.667C37.333 34.667 47.253 21.867 52.6397 14.9603C53.9997 13.2003 52.7464 10.667 50.533 10.667H13.4397C11.2264 10.667 9.97303 13.2003 11.333 14.9603Z"
-                    fill="#fff" />
-            </svg>
-            Semua
-        </button>
+
+        <form action="/product-list">
+            <button class="filterBtn py-2 px-4 bg-primary-100">
+                <svg class="inline" width="20" height="20" viewBox="0 0 64 64" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M18.6664 16.0003H45.333L31.973 32.8003L18.6664 16.0003ZM11.333 14.9603C16.7197 21.867 26.6664 34.667 26.6664 34.667V50.667C26.6664 52.1337 27.8664 53.3337 29.333 53.3337H34.6664C36.133 53.3337 37.333 52.1337 37.333 50.667V34.667C37.333 34.667 47.253 21.867 52.6397 14.9603C53.9997 13.2003 52.7464 10.667 50.533 10.667H13.4397C11.2264 10.667 9.97303 13.2003 11.333 14.9603Z"
+                        fill="#fff" />
+                </svg>
+                Semua
+            </button>
+        </form>
+
         <button class="filterBtn py-2 px-4 bg-gray-secondary">
             Tersertifikasi Halal
         </button>
@@ -45,12 +48,14 @@
             Belum tersertifikasi
         </button>
     </div>
+
+    @if ($products->count())
     <h2 class="ml-2 mt-6">{{count($products)}} Produk ditemukan</h2>
     @foreach ($products as $item)
     <div id="search-result">
         <div id="result-container">
             <div class="card flex p-3 mt-4 mb-3 h-28 bg-gray-100 rounded-lg shadow-md">
-                <img class="rounded-lg" src="https://baconmockup.com/90/90" alt="food">
+                <img class="rounded-lg" src="{{asset('storage/'.$item->image)}}" alt="food">
                 <div class="ml-3 truncate">
                     <h3 class="font-bold font-primary truncate ...">{{$item->name}}</h3>
                     <h4 class="mt-1 truncate ...">{{$item->company->name}}</h4>
@@ -70,5 +75,8 @@
         </div>
     </div>
     @endforeach
+    @else
+    <p>Postingan tidak tersedia</p>
+    @endif
 </div>
 @endsection

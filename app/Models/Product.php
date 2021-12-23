@@ -15,4 +15,15 @@ class Product extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
+    public function scopeSearching($query, array $searching)
+    {
+        if (isset($searching['search']) ? $searching['search'] : false) {
+            return $query->where('name', 'like', '%' . $searching['search'] . '%');
+        }
+
+        $query->when($searching['search'] ?? false, function ($query, $search) {
+            return $query->where('name', 'like', '%' . $search . '%');
+        });
+    }
 }
