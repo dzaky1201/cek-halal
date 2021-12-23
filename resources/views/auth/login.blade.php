@@ -52,6 +52,6 @@
 </div>
 @endif
 @section('scripts')
-<script src="{{ asset('js/functions.js') }}"></script>
+<script src="{{ asset('js/modal.js') }}"></script>
 @endsection
 @endsection

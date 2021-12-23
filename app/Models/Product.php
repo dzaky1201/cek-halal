@@ -26,4 +26,14 @@ class Product extends Model
             return $query->where('name', 'like', '%' . $search . '%');
         });
     }
+
+    // buat filter halal
+    public function scopeHalal($query)
+    {
+        if (request('is_halal') == 'true') {
+            return $query->where('is_halal', '=', 'true');
+        } else {
+            return $query->where('is_halal', '=', 'false');
+        }
+    }
 }

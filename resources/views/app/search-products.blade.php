@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-@include('layouts.header', ['title' => "Cek Halal"])
+@include('layouts.header', ['title' => "Cek Halal", 'path' => "/"])
 @endsection
 
 @section('content')
@@ -51,32 +51,34 @@
 
     @if ($products->count())
     <h2 class="ml-2 mt-6">{{count($products)}} Produk ditemukan</h2>
-    @foreach ($products as $item)
     <div id="search-result">
+        @foreach ($products as $item)
         <div id="result-container">
             <div class="card flex p-3 mt-4 mb-3 h-28 bg-gray-100 rounded-lg shadow-md">
                 <img class="rounded-lg" src="{{asset('storage/'.$item->image)}}" alt="food">
+                <a href="{{route('product-list.show', ['product' => $item->id])}}"> selengkapnya...</a>
                 <div class="ml-3 truncate">
                     <h3 class="font-bold font-primary truncate ...">{{$item->name}}</h3>
-                    <h4 class="mt-1 truncate ...">{{$item->company->name}}</h4>
+                    <h4 class="mt-1.5 truncate font-primary font-medium text-sm tracking-wide ...">
+                        {{$item->company->name}}</h4>
                     @if ($item->is_halal === 'true')
-                    <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100 cursor-default"
-                        disabled="disabled">
+                    <p class="label py-1 px-3 mt-2 w-min bg-primary-200 text-primary-100">
                         Tersertifikasi Halal
-                    </button>
-                    @endif
-                    <button class="label px-3 py-1 mt-1 bg-primary-200 text-primary-100 cursor-default"
-                        disabled="disabled">
+                    </p>
+                    @else
+                    <p class="label py-1 px-3 mt-2 w-min bg-gray-secondary text-black_ori">
                         Belum Tersertifikasi Halal
-                    </button>
-
+                    </p>
+                    @endif
                 </div>
             </div>
         </div>
+        @endforeach
+        @else
+        <p>Produk tidak tersedia</p>
+        @endif
     </div>
-    @endforeach
-    @else
-    <p>Postingan tidak tersedia</p>
-    @endif
-</div>
-@endsection
+    @section('scripts')
+    <script src="{{ asset('js/functions.js') }}"></script>
+    @endsection
+    @endsection

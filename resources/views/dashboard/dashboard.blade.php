@@ -22,34 +22,34 @@
 @can('super-admin')
 <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
-        <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('products.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
 
-                Tambah Produk
+                Manage Produk
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="{{route('companies.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('companies.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
 
-                Tambah Perusahaan
+                Manage Perusahaan
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="{{route('reviews.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('reviews.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
-                Tambah Ulasan
+                Manage Ulasan
             </div>
         </a>
 
-        <a class="font-medium text-xs text-white text-center" href="{{route('registers.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('registers.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/user.svg') }}" alt="User logo">
 
-                Tambah Admin
+                Manage Admin
 
             </div>
         </a>
@@ -72,28 +72,28 @@
 
 <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
-        <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('products.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
 
-                Tambah Produk
+                Manage Produk
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="{{route('companies.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('companies.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
 
-                Tambah Perusahaan
+                Manage Perusahaan
 
             </div>
         </a>
     </div>
-    <a class="font-medium text-xs text-white text-center" href="{{route('reviews.create')}}">
+    <a class="font-medium text-xs text-white text-center" href="{{route('reviews.index')}}">
         <div class="box rounded-lg flex-col p-2 mt-10 mx-auto">
             <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
 
-            Tambah Ulasan
+            Manage Ulasan
 
         </div>
     </a>
@@ -115,7 +115,7 @@
     class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 transform scale-0 transition-transform duration-300 scale-100">
     <!-- Modal content -->
     <div class="bg-white w-64 h-42 border-2 rounded-lg border-primary-100">
-        <header class="header rounded-tr-lg rounded-tl-lg"></header>
+        <header class="header p-4 rounded-tr-lg rounded-tl-lg"></header>
         <div class="flex flex-col p-3 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="#209777">
                 <path fill-rule="evenodd"
@@ -132,6 +132,6 @@
 </div>
 @endif
 @section('scripts')
-<script src="{{ asset('js/functions.js') }}"></script>
+<script src="{{ asset('js/modal.js') }}"></script>
 @endsection
 @endsection

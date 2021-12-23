@@ -26,10 +26,15 @@ module.exports = {
             maxWidth: {
                 mobile: "30rem",
             },
+            boxShadow: {
+                bottomNav: "0px -4px 4px 0px rgba(0, 0, 0, 0.1)",
+            },
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            backgroundColor: ["active"],
+        },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/line-clamp")],
 };

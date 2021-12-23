@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->get();
+        return view('dashboard.view-data.products-data', ['products' => $products]);
     }
 
     /**
@@ -76,7 +77,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $companies = Company::all();
+        return view('dashboard.edit-product', ['product' => $product, 'companies' => $companies]);
     }
 
     /**
@@ -99,6 +101,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Product::destroy($product->id);
+        return redirect('dashboard.products')->with('pesan', 'Produk Berhasil Dihapus');
     }
 }

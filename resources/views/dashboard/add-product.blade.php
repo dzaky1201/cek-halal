@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-@include('layouts.header', ['title' => "Tambah Produk"])
+@include('layouts.header', ['title' => "Tambah Produk", 'path' => "/dashboard/products"])
 @endsection
 
 
