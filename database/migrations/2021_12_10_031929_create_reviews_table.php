@@ -17,6 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('product_id');
+            $table->string('name');
             $table->text('content');
             $table->string('url_source');
             $table->string('image');

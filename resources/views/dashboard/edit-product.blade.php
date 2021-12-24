@@ -5,18 +5,20 @@
 @endsection
 
 @section('header')
-@include('layouts.header', ['title' => "Tambah Produk", 'path' => "/dashboard/products"])
+@include('layouts.header', ['title' => "Edit Produk", 'path' => "/dashboard/products"])
 @endsection
 
 
 @section('content')
 <div id="product-form" class="mt-10 mb-12 w-11/12">
-    <form class="mx-2" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+    <form class="mx-2" action="{{route('products.update', ['product' => $product->id])}}" method="POST"
+        enctype="multipart/form-data">
+        @method('PATCH')
         @csrf
         <div>
             <label class="font-medium tracking-wider" for="name">Nama Produk</label>
             <input class="mt-2 form-input" type="text" name="name" id="name" placeholder="Masukkan nama produk" required
-                value="{{old('name')}}">
+                value="{{old('name') ?? $product->name}}">
             <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
         </div>
         <div class="mt-4">
@@ -24,7 +26,12 @@
             <select class="mt-2 form-input font-primary font-medium" name="company_id" id="company_id">
                 <option value="N/A" d>--Select Company--</option>
                 @foreach ($companies as $company)
+                @if (old('company_id', $product->company_id) == $company->id)
+                <option value="{{$company->id}}" selected>{{$company->name}}</option>
+                @else
                 <option value="{{$company->id}}">{{$company->name}}</option>
+                @endif
+
                 @endforeach
             </select>
         </div>
@@ -33,9 +40,15 @@
                 Keterangan: (Status Sertifikasi Halal)
             </label>
             <div class="form-input border-dashed">
-                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="false">
+                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="false"
+                    @if($product->is_halal == 'false')
+                checked
+                @endif>
                 Belum Tersertifikasi<br>
-                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="true">
+                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="true"
+                    @if($product->is_halal == 'true')
+                checked
+                @endif>
                 Tersertifikasi Halal
             </div>
         </div>
@@ -43,25 +56,30 @@
         <div id="cert_number" class="mt-4 hidden">
             <label class="font-medium tracking-wider" for="certification_number">Nomor sertifikasi</label>
             <input class="mt-2 form-input" type="text" name="certification_number" id="certification_number"
-                placeholder="Masukkan nomor sertifikasi" value="{{old('certification_number')}}">
+                placeholder="Masukkan nomor sertifikasi"
+                value="{{old('certification_number') ?? $product->certification_number}}">
         </div>
         <div id="exp_date" class="mt-4 hidden">
             <label class="font-medium tracking-wider" for="expire_date">Expire Date</label>
             <input class="mt-2 form-input" type="text" name="expire_date" id="expire_date" placeholder="xx-xx-xxxx"
-                value="{{old('expire_date')}}">
+                value="{{old('expire_date') ?? $product->expire_date}}">
         </div>
         {{-- end --}}
+
+
+        {{-- ini saya ubah input komposisi jadi text area mas --}}
         <div class="mt-4 pr-1">
             <label class="font-medium tracking-wider mb-2" for="ingredients">Komposisi</label>
             <textarea id="ingredients" class="mt-1 form-input resize-x" name="ingredients" rows="4" cols="30"
-                placeholder="Masukkan Komposisi" required value="{{old('ingredients')}}"></textarea>
+                placeholder="Masukkan Komposisi" required>{{old('ingredients') ?? $product->ingredients}}</textarea>
         </div>
         <div class=" mt-4">
             <label class="font-medium tracking-wider" for="image">Foto produk</label>
+            <input type="hidden" name="oldImage" value="{{$product->image}}">
             <input class="mt-2 form-input border-dashed" type="file" name="image" id="image"
                 placeholder="Masukkan Foto produk">
         </div>
-        <button class="btn w-full mt-32" type="submit" name="submit">Tambah Produk</button>
+        <button class="btn w-full mt-32" type="submit" name="submit">Update Produk</button>
     </form>
 </div>
 

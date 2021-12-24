@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-@include('layouts.header', ['title' => "Tambah Admin"])
+@include('layouts.header', ['title' => "Tambah Admin", 'path' => '/dashboard/registers'])
 @endsection
 
 @section('content')

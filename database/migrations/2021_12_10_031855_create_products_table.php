@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->enum('is_halal', ['true', 'false']);
             $table->text('ingredients');
-            $table->string('certification_number')->default('tidak ada');
-            $table->string('expire_date')->default('tidak ada');
+            $table->string('certification_number')->nullable()->default('tidak ada');
+            $table->string('expire_date')->nullable()->default('tidak ada');
             $table->string('image')->default('default.jpg');
             $table->timestamps();
         });

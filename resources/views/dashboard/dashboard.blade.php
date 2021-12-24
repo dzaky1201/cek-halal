@@ -22,34 +22,34 @@
 @can('super-admin')
 <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
-        <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('products.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
 
-                Tambah Produk
+                Manage Produk
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="{{route('companies.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('companies.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
 
-                Tambah Perusahaan
+                Manage Perusahaan
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="{{route('reviews.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('reviews.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
-                Tambah Ulasan
+                Manage Ulasan
             </div>
         </a>
 
-        <a class="font-medium text-xs text-white text-center" href="{{route('registers.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('registers.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/user.svg') }}" alt="User logo">
 
-                Tambah Admin
+                Manage Admin
 
             </div>
         </a>
@@ -72,28 +72,28 @@
 
 <div id="menu-wrapper" class="mt-24 mx-auto mb-10">
     <div class="grid grid-cols-2 gap-10">
-        <a class="font-medium text-xs text-white text-center" href="{{route('products.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('products.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/package.svg') }}" alt="Add Product">
 
-                Tambah Produk
+                Manage Produk
 
             </div>
         </a>
-        <a class="font-medium text-xs text-white text-center" href="{{route('companies.create')}}">
+        <a class="font-medium text-xs text-white text-center" href="{{route('companies.index')}}">
             <div class="box rounded-lg flex-col p-2">
                 <img class="w-12 h-12 block mb-2" src="{{ asset('/src/icons/company.svg') }}" alt="Add company">
 
-                Tambah Perusahaan
+                Manage Perusahaan
 
             </div>
         </a>
     </div>
-    <a class="font-medium text-xs text-white text-center" href="{{route('reviews.create')}}">
+    <a class="font-medium text-xs text-white text-center" href="{{route('reviews.index')}}">
         <div class="box rounded-lg flex-col p-2 mt-10 mx-auto">
             <img class="w-12 h-12 block mb-3" src="{{ asset('/src/icons/clipboard.svg') }}" alt="Add Review">
 
-            Tambah Ulasan
+            Manage Ulasan
 
         </div>
     </a>
@@ -132,6 +132,6 @@
 </div>
 @endif
 @section('scripts')
-    <script src="{{ asset('js/modal.js') }}"></script>
+<script src="{{ asset('js/modal.js') }}"></script>
 @endsection
 @endsection

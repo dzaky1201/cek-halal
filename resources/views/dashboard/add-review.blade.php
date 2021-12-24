@@ -21,6 +21,10 @@
                 @endforeach
             </select>
         </div>
+        <div class="mt-4">
+            <label class="font-medium tracking-wider" for="name">nama pengulas</label>
+            <input class="mt-1 form-input" type="text" name="name" id="name" placeholder="Masukkan URL sumber" required>
+        </div>
         <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
         <div class="mt-4 pr-1">
             <label class="font-medium tracking-wider mb-2" for="content">Ulasan</label>

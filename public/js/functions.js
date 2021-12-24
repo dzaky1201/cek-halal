@@ -13,12 +13,13 @@ function showPassword() {
 }
 
 function isHalal(value) {
-    let certificationNumberInput = document.querySelector("#cert_number");
-    let expDateInput = document.querySelector("#exp_date");
+    const certificationNumberInput = document.querySelector("#cert_number");
+    const expDateInput = document.querySelector("#exp_date");
+    console.log(value);
     if (value === "true") {
         certificationNumberInput.classList.remove("hidden");
         expDateInput.classList.remove("hidden");
-    } else if (!expDateInput.classList.contains("hidden")) {
+    } else {
         certificationNumberInput.classList.add("hidden");
         expDateInput.classList.add("hidden");
     }
@@ -28,7 +29,7 @@ if (document.title == "Search Halal Products") {
     console.log(true);
     let filters = document.querySelectorAll(".filterBtn");
     window.onclick = function (event) {
-        if (!event.target.classList.contains("bg-primary-100")) {
+        if (event.target.classList.contains("filterBtn")) {
             filters.forEach((filter) => {
                 // remove current active color
                 if (filter.classList.contains("bg-primary-100")) {

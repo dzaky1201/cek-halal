@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->get();
+        return view('dashboard.view-data.products-data', ['products' => $products]);
     }
 
     /**
@@ -47,6 +49,15 @@ class ProductController extends Controller
             'image' => 'required|image|file|max:1024|mimes:jpeg,png,jpg',
         ]);
 
+        if ($request->has('certification_number') && $request->has('expire_date')) {
+            $validateProduct['certification_number'] = $request->input('certification_number', '-');
+            $validateProduct['expire_date'] = $request->input('expire_date', '-');
+        } else {
+            $validateProduct['certification_number'] = '-';
+            $validateProduct['expire_date'] = '-';
+        }
+
+
         if ($request->file('image')) {
             $validateProduct['image'] = $request->file('image')->store('product-images');
         }
@@ -54,7 +65,7 @@ class ProductController extends Controller
         Product::create($validateProduct);
 
 
-        return redirect('dashboard')->with('pesan', 'Produk berhasil ditambahkan');
+        return redirect('success')->with('pesan', 'Produk berhasil ditambahkan');
     }
 
     /**
@@ -76,7 +87,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $companies = Company::all();
+        return view('dashboard.edit-product', ['product' => $product, 'companies' => $companies]);
     }
 
     /**
@@ -88,7 +100,33 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validateProduct = $request->validate([
+            'name' => 'required',
+            'user_id' => 'required',
+            'company_id' => 'required',
+            'is_halal' => 'required',
+            'ingredients' => 'required',
+            'image' => 'image|file|max:1024|mimes:jpeg,png,jpg',
+        ]);
+
+        if ($request->has('certification_number') && $request->has('expire_date')) {
+            $validateProduct['certification_number'] = $request->input('certification_number', '-');
+            $validateProduct['expire_date'] = $request->input('expire_date', '-');
+        }
+
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validateProduct['image'] = $request->file('image')->store('product-images');
+        }
+
+        Product::where('id', $product->id)
+            ->update($validateProduct);
+
+
+        return redirect()->route('products.index')->with('pesan', 'Produk berhasil diupdate');
     }
 
     /**
@@ -99,6 +137,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
+        Product::destroy($product->id);
+        return redirect()->route('products.index')->with('pesan', 'Produk Berhasil Dihapus');
     }
 }
