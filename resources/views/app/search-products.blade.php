@@ -39,51 +39,61 @@
                 </svg>
                 Semua
             </button>
+            <input type="hidden" id="all" name="all" value="true">
+        </form>
+        <form action="/product-list">
+            <button class="filterBtn py-2 px-4 bg-gray-secondary">
+                Tersertifikasi Halal
+            </button>
+            <input type="hidden" id="is_halal" name="is_halal" value="true">
         </form>
 
-        <button class="filterBtn py-2 px-4 bg-gray-secondary">
-            Tersertifikasi Halal
-        </button>
-        <button class="filterBtn py-2 px-4 bg-gray-secondary">
-            Belum tersertifikasi
-        </button>
+        <form action="/product-list">
+            <button class="filterBtn py-2 px-4 bg-gray-secondary">
+                Belum Tersertifikasi
+            </button>
+            <input type="hidden" id="is_halal" name="is_halal" value="false">
+        </form>
     </div>
 
     @if ($products->count())
     <h2 class="ml-2 mt-6">{{count($products)}} Produk ditemukan</h2>
     <div id="search-result">
-      @foreach ($products as $item)
+        @foreach ($products as $item)
         <div class="product">
             <a href="{{route('product-list.show', ['product' => $item->id])}}">
-              <div class="card flex px-3 py-2.5 mt-4 mb-3 bg-gray-100 h-28 rounded-lg shadow-md">                
-                  {{-- Using image placeholder to set image width --}}
-                  {{-- <img class="rounded-lg" src="{{asset('storage/'.$item->image)}}" alt="food"> --}}
-                  <img class="rounded-lg w-24 object-scale-down" src="{{asset('src/img/test-image.png')}}" alt="{{$item->name}}">
-                  <div class="ml-3 truncate">
-                    <h3 class="font-bold font-primary truncate ...">{{$item->name}}</h3>
-                    <h4 class="mt-1.5 truncate font-primary font-medium text-sm tracking-wide ...">
-                        {{$item->company->name}}</h4>
-                    @if ($item->is_halal === 'true')
-                    <p class="label py-1 px-3 mt-2 w-min bg-primary-200 text-primary-100">
-                        Tersertifikasi Halal
-                    </p>
-                    @else
-                    <p class="label py-1 px-3 mt-2 w-min bg-gray-secondary text-black_ori">
-                        Belum Tersertifikasi Halal
-                    </p>
-                    @endif
-                  </div>
+                <div class="card flex px-3 py-2.5 mt-4 mb-3 bg-gray-100 h-28 rounded-lg shadow-md">
+                    {{-- Using image placeholder to set image width --}}
+                    {{-- <img class="rounded-lg w-24 object-scale-down" src="{{asset('storage/'.$item->image)}}"
+                        alt="{{$item->name}}"> --}}
+                    <img class="rounded-lg w-24 object-scale-down" src="{{asset('src/img/test-image.png')}}"
+                        alt="{{$item->name}}">
+                    <div class="ml-3 truncate">
+                        <h3 class="font-bold font-primary truncate ...">{{$item->name}}</h3>
+                        <h4 class="mt-1.5 truncate font-primary font-medium text-sm tracking-wide ...">
+                            {{$item->company->name}}</h4>
+                        @if ($item->is_halal === 'true')
+                        <p class="label py-1 px-3 mt-2 w-min bg-primary-200 text-primary-100">
+                            Tersertifikasi Halal
+                        </p>
+                        @else
+                        <p class="label py-1 px-3 mt-2 w-min bg-gray-secondary text-black_ori">
+                            Belum Tersertifikasi Halal
+                        </p>
+                        @endif
+                    </div>
                 </div>
-              </a>
-          </div>
+            </a>
+        </div>
         @endforeach
         @else
         <h2 class="ml-2 mt-6 font-semibold font-primary">{{count($products)}} Produk ditemukan</h2>
         <div class="w-8/12 mt-20 m-auto text-center">
-          <img class="m-auto w-100 bg-cover" src="{{asset('src/illustrations/not-found.png')}}" alt="Product not found">
-          <h3 class="mt-6 font-semibold font-primary text-sm">
-            Mohon maaf, produk yang anda cari belum tersedia.
-          </h3>
+            <img class="m-auto w-100 bg-cover" src="{{asset('src/illustrations/not-found.png')}}"
+                alt="Product not found">
+            <h3 class="mt-6 font-semibold font-primary text-sm">
+                Mohon maaf, produk yang anda cari belum tersedia.
+            </h3>
         </div>
         @endif
     </div>

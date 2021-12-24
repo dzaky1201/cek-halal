@@ -33,9 +33,9 @@
                 Keterangan: (Status Sertifikasi Halal)
             </label>
             <div class="form-input border-dashed">
-                <input class="mr-2" type="radio" name="is_halal" value="halal_false" onclick="isHalal(value)">
+                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="false">
                 Belum Tersertifikasi<br>
-                <input class="mr-2" type="radio" name="is_halal" value="halal_true" onclick="isHalal(value)">
+                <input class="mr-2" type="radio" name="is_halal" onclick="isHalal(this.value)" value="true">
                 Tersertifikasi Halal
             </div>
         </div>
@@ -46,13 +46,11 @@
                 placeholder="Masukkan nomor sertifikasi" value="{{old('certification_number')}}">
         </div>
         <div id="exp_date" class="mt-4 hidden">
-            <label class="font-medium tracking-wider" for="expired_date">Expire Date</label>
-            <input class="mt-2 form-input" type="text" name="expired_date" id="expired_date" placeholder="xx-xx-xxxx"
-                value="{{old('expired_date')}}">
+            <label class="font-medium tracking-wider" for="expire_date">Expire Date</label>
+            <input class="mt-2 form-input" type="text" name="expire_date" id="expire_date" placeholder="xx-xx-xxxx"
+                value="{{old('expire_date')}}">
         </div>
         {{-- end --}}
-
-        {{-- ini saya ubah input komposisi jadi text area mas --}}
         <div class="mt-4 pr-1">
             <label class="font-medium tracking-wider mb-2" for="ingredients">Komposisi</label>
             <textarea id="ingredients" class="mt-1 form-input resize-x" name="ingredients" rows="4" cols="30"
@@ -61,7 +59,7 @@
         <div class=" mt-4">
             <label class="font-medium tracking-wider" for="image">Foto produk</label>
             <input class="mt-2 form-input border-dashed" type="file" name="image" id="image"
-                placeholder="Masukkan Foto produk" required>
+                placeholder="Masukkan Foto produk">
         </div>
         <button class="btn w-full mt-32" type="submit" name="submit">Tambah Produk</button>
     </form>

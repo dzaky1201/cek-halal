@@ -18,7 +18,7 @@
         <p class="mt-5">
             Jazakumullahu khairan, data dan informasi telah berhasil ditambahkan, semoga dapat berguna bagi kita semua!
             <span>
-                <a class="text-primary-100 font-medium" href="#">Tambahkan data lainnya<a>
+                <a class="text-primary-100 font-medium" href="{{route('products.index')}}">Tambahkan data lainnya<a>
             </span>
         </p>
     </div>

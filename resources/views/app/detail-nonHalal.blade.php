@@ -47,10 +47,12 @@
         <h3 class="text-gray-secondary font-bold text-sm mx-2 mt-3">
             Ulasan Komunitas:
         </h3>
+
+
         <div class="mt-4 mx-2">
             <div class="rounded-lg border border-primary-100">
                 <div class="p-3">
-                    <h3 class="text-lg font-semibold mb-2">John Doe</h3>
+                    <h3 class="text-lg font-semibold mb-2">Udin Sedunia</h3>
                     <p class="text-sm text-justify mb-2 font-primary font-medium">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus ullam incidunt beatae
                         quidem similique molestiae reiciendis itaque.
@@ -68,6 +70,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 @endsection

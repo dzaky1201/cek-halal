@@ -16,7 +16,7 @@ function isHalal(value) {
     const certificationNumberInput = document.querySelector("#cert_number");
     const expDateInput = document.querySelector("#exp_date");
     console.log(value);
-    if (value === "halal_true") {
+    if (value === "true") {
         certificationNumberInput.classList.remove("hidden");
         expDateInput.classList.remove("hidden");
     } else {

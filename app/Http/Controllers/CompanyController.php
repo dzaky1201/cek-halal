@@ -14,7 +14,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::latest()->get();
+        return view('dashboard.view-data.companies-data', ['companies' => $companies]);
     }
 
     /**
@@ -42,7 +43,7 @@ class CompanyController extends Controller
 
         Company::create($validateData);
 
-        return redirect('dashboard')->with('pesan', 'Perusahaan berhasil di inputkan');
+        return redirect()->route('companies.index')->with('pesan', 'Perusahaan berhasil di inputkan');
     }
 
     /**
@@ -64,7 +65,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('dashboard.edit-company', ['company' => $company]);
     }
 
     /**
@@ -76,7 +77,20 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $rules = [
+            'url_website' => 'required'
+        ];
+
+        if ($request->name != $company->name) {
+            $rules['name'] = 'required|unique:companies';
+        }
+
+        $validateData = $request->validate($rules);
+
+        Company::where('id', $company->id)
+            ->update($validateData);
+
+        return redirect()->route('companies.index')->with('pesan', 'Perusahaan berhasil di update');
     }
 
     /**

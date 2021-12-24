@@ -12,7 +12,9 @@
 @section('content')
 <div class="mt-14 mb-12 w-11/12">
     <div id="product-detail" class="flex content-center justify-between mx-2">
-        <img class="rounded-lg flex-auto min-w-0 max-h-36 object-scale-down" src="{{ asset('src/img/test-image.png') }}"
+        {{-- <img class="rounded-lg flex-auto min-w-0 max-h-36 object-scale-down"
+            src="{{asset('storage/'.$product->image)}}" alt="food"> --}}
+        <img class="rounded-lg flex-auto min-w-0 max-h-36 object-scale-down" src="{{ asset('src/img/noodle.png') }}"
             alt="food">
         <div id="product-desc" class="flex-auto ml-5 -mt-1">
             <div>

@@ -16,24 +16,23 @@ class Product extends Model
         return $this->belongsTo(Company::class);
     }
 
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function scopeSearching($query, array $searching)
     {
-        if (isset($searching['search']) ? $searching['search'] : false) {
-            return $query->where('name', 'like', '%' . $searching['search'] . '%');
-        }
-
         $query->when($searching['search'] ?? false, function ($query, $search) {
             return $query->where('name', 'like', '%' . $search . '%');
         });
-    }
 
-    // buat filter halal
-    public function scopeHalal($query)
-    {
-        if (request('is_halal') == 'true') {
-            return $query->where('is_halal', '=', 'true');
-        } else {
-            return $query->where('is_halal', '=', 'false');
-        }
+        $query->when($searching['is_halal'] ?? false, function ($query, $is_halal) {
+            return $query->where('is_halal', '=', $is_halal);
+        });
+
+        $query->when($searching['all'] ?? false, function () {
+            return Product::all();
+        });
     }
 }
