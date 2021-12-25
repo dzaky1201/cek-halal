@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->get();
+        $products = Product::latest()->searching(request(['search']))->get();
         return view('dashboard.view-data.products-data', ['products' => $products]);
     }
 

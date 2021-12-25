@@ -12,7 +12,7 @@ class RegisterController extends Controller
 
     public function index()
     {
-        $users = User::latest()->get();
+        $users = User::latest()->searching(request(['search']))->get();
         return view('dashboard.view-data.data-admin', ['users' => $users]);
     }
 
