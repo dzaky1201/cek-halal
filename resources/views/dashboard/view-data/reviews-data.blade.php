@@ -11,7 +11,7 @@
 @section('content')
 <div class="mt-10 mb-10 w-11/12 relative">
     {{-- import search bar --}}
-    @include('layouts.search-bar', ['placeholder' => "Cari Ulasan"])
+    @include('layouts.search-bar', ['placeholder' => "Cari Ulasan", 'action' => "/dashboard/reviews"])
     <div id="search-result">
 
         {{-- review card component --}}

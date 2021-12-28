@@ -48,14 +48,13 @@
             Ulasan Komunitas:
         </h3>
 
-
+        @foreach ($detail as $item)
         <div class="mt-4 mx-2">
             <div class="rounded-lg border border-primary-100">
                 <div class="p-3">
-                    <h3 class="text-lg font-semibold mb-2">Udin Sedunia</h3>
+                    <h3 class="text-lg font-semibold mb-2">{{$item->name}}</h3>
                     <p class="text-sm text-justify mb-2 font-primary font-medium">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus ullam incidunt beatae
-                        quidem similique molestiae reiciendis itaque.
+                        {{$item->content}}
                     </p>
                     <a href="/search" class="font-primary text-primary-100 font-bold text-sm">
                         Lihat lebih lanjut
@@ -65,11 +64,13 @@
                         </svg>
                     </a>
                     <p class="italic font-primary mt-2.5 text-xs">
-                        Sumber: Halal.com/halalalaan toyyibann
+                        Sumber: {{$item->url_source}}
                     </p>
                 </div>
             </div>
         </div>
+        @endforeach
+
 
     </div>
 </div>
