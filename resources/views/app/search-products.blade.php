@@ -5,11 +5,7 @@
 @endsection
 
 @section('header')
-<<<<<<< HEAD
   @include('layouts.header', ['title' => "Cek Halal", 'path' => "/home"])
-=======
-@include('layouts.header', ['title' => "Cek Halal", 'path' => "/"])
->>>>>>> master
 @endsection
 
 @section('content')
@@ -99,19 +95,10 @@
                 Mohon maaf, produk yang anda cari belum tersedia.
             </h3>
         </div>
-<<<<<<< HEAD
-    @endforeach
-    </div>
-</div>
-    @section('scripts')
-        <script src="{{ asset('js/functions.js') }}"></script>
-    @endsection
-=======
         @endif
     </div>
 </div>
 @section('scripts')
 <script src="{{ asset('js/functions.js') }}"></script>
 @endsection
->>>>>>> master
 @endsection
