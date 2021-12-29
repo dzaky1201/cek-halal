@@ -11,7 +11,7 @@
 @section('content')
 <div class="mt-10 mb-10 w-11/12 relative">
     {{-- import search bar --}}
-    @include('layouts.search-bar', ['placeholder' => "Cari Perusahaan"])
+    @include('layouts.search-bar', ['placeholder' => "Cari Perusahaan", 'action'=> "/dashboard/companies"])
     <div id="company-data" class="mt-10">
         @foreach ($companies as $company)
         {{-- company card --}}

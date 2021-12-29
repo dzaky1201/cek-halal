@@ -14,7 +14,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::latest()->get();
+        $companies = Company::latest()->searching(request(['search']))->get();
         return view('dashboard.view-data.companies-data', ['companies' => $companies]);
     }
 

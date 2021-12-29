@@ -11,7 +11,7 @@
 @section('content')
 <div class="mt-10 mb-10 w-11/12 relative">
     {{-- import search bar --}}
-    @include('layouts.search-bar', ['placeholder' => "Cari Admin"])
+    @include('layouts.search-bar', ['placeholder' => "Cari Admin", 'action'=> "/dashboard/registers"])
     <div id="admin-data" class="mt-10">
 
         {{-- admin card--}}

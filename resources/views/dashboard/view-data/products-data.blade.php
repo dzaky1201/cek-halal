@@ -11,7 +11,7 @@
 @section('content')
 <div class="mt-10 mb-10 w-11/12 relative">
     {{-- import search bar --}}
-    @include('layouts.search-bar', ['placeholder' => "Masukkan nama produk"])
+    @include('layouts.search-bar', ['placeholder' => "Masukkan nama produk", 'action'=> "/dashboard/products"])
     <div id="search-result">
         @if ($products->count())
         <div id="result-container" class="mt-8">

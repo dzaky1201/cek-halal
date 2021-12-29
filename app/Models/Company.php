@@ -14,4 +14,11 @@ class Company extends Model
         'url_website'
 
     ];
+
+    public function scopeSearching($query, array $searching)
+    {
+        $query->when($searching['search'] ?? false, function ($query, $search) {
+            return $query->where('name', 'like', '%' . $search . '%');
+        });
+    }
 }

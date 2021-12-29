@@ -11,6 +11,15 @@ class Review extends Model
 
     protected $guarded = [];
 
+    public function scopeSearching($query, array $searching)
+    {
+        $query->when($searching['search'] ?? false, function ($query, $search) {
+            return $query->whereHas('product', function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            });
+        });
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);

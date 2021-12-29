@@ -18,7 +18,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::latest()->get();
+        $reviews = Review::with('product.company')->latest()->searching(request(['search']))->get();
         return view('dashboard.view-data.reviews-data', ['reviews' => $reviews]);
     }
 
