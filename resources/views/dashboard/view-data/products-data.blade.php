@@ -19,19 +19,17 @@
             <div class="product mb-4">
                 <div class="card flex p-3 h-28 bg-gray-100 rounded-lg shadow-md">
                     <img class="rounded-lg" src="{{ asset('src/img/noodle.png') }}" alt="food">
-                    <div class="justify-between flex w-full">
-                        <div class="ml-3 truncate content-center">
-                            <div>
-                                <h3 class="font-bold font-primary my-2">{{$item->name}}</h3>
-                                <h4 class="mt-1 truncate ...">
-                                    {{$item->company->name}}
-                                </h4>
-                            </div>
+                    <div class="justify-start flex w-full flex-wrap">
+                        <div class="ml-3 truncate w-60">
+                            <h3 class="font-bold font-primary mb-2 truncate ...">{{$item->name}}</h3>
+                            <h4 class="mt-1 truncate ...">
+                                {{$item->company->name}}
+                            </h4>
                         </div>
-                        <div class="flex content-center items-center justify-between ml-2">
+                        <div class="flex content-center items-center justify-between ml-3">
                             {{-- edit icon --}}
                             <a href="{{ route('products.edit',['product' => $item->id]) }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-1.5" fill="none"
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1.5" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />

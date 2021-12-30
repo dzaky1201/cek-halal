@@ -8,6 +8,12 @@
   @include('layouts.header', ['title' => "Cek Halal", 'path' => "/home"])
 @endsection
 
+@php
+    $is_halal = Request::get('is_halal');
+    $is_search = Request::get('search');
+    $filter_all = Request::get('all');
+@endphp
+
 @section('content')
 <div class="mt-10 mb-12 w-11/12">
     <div id="search-container">
@@ -27,10 +33,17 @@
             </button>
         </form>
     </div>
-    <div id="filter" class="flex justify-between mt-6 mx-1.5">
+    <div id="filter" class="flex justify-between mt-6">
 
         <form action="/product-list">
-            <button class="filterBtn py-2 px-4 bg-primary-100">
+            <button @class([
+                'filterBtn',
+                'text-sm',
+                'py-2',
+                'px-4',
+                'bg-primary-100' => $is_search || $filter_all, 
+                'bg-gray-secondary' => $is_halal,
+            ])>
                 <svg class="inline" width="20" height="20" viewBox="0 0 64 64" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -42,14 +55,28 @@
             <input type="hidden" id="all" name="all" value="true">
         </form>
         <form action="/product-list">
-            <button class="filterBtn py-2 px-4 bg-gray-secondary">
+            <button @class([
+                'filterBtn',
+                'text-sm',
+                'py-2',
+                'px-4',
+                'bg-primary-100' => $is_halal,
+                'bg-gray-secondary' => !$is_halal,
+            ])>
                 Tersertifikasi Halal
             </button>
             <input type="hidden" id="is_halal" name="is_halal" value="true">
         </form>
 
         <form action="/product-list">
-            <button class="filterBtn py-2 px-4 bg-gray-secondary">
+            <button @class([
+                'filterBtn',
+                'text-sm',
+                'py-2',
+                'px-4',
+                'bg-primary-100' => $is_halal_false,
+                'bg-gray-secondary' => !$is_halal,
+            ])>
                 Belum Tersertifikasi
             </button>
             <input type="hidden" id="is_halal" name="is_halal" value="false">
@@ -73,11 +100,15 @@
                         <h4 class="mt-1.5 truncate font-primary font-medium text-sm tracking-wide ...">
                             {{$item->company->name}}</h4>
                         @if ($item->is_halal === 'true')
-                        <p class="label py-1 px-3 mt-2 w-min bg-primary-200 text-primary-100">
+                        <p class="
+                            label text-xs py-1 px-1.5 mt-3 w-min bg-primary-200 text-primary-100 
+                            xs:text-sm xs:px-3 xs:mt-2">
                             Tersertifikasi Halal
                         </p>
                         @else
-                        <p class="label py-1 px-3 mt-2 w-min bg-gray-secondary text-black_ori">
+                        <p class="
+                            label text-xs py-1 px-1.5 mt-3 w-min bg-gray-secondary text-black_ori 
+                            xs:text-sm xs:px-3 xs:mt-2">
                             Belum Tersertifikasi Halal
                         </p>
                         @endif

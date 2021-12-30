@@ -22,8 +22,8 @@
             </select>
         </div>
         <div class="mt-4">
-            <label class="font-medium tracking-wider" for="name">nama pengulas</label>
-            <input class="mt-1 form-input" type="text" name="name" id="name" placeholder="Masukkan URL sumber" required>
+            <label class="font-medium tracking-wider" for="name">Nama Pengulas</label>
+            <input class="mt-1 form-input" type="text" name="name" id="name" placeholder="Masukkan Nama pengulas" required>
         </div>
         <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
         <div class="mt-4 pr-1">

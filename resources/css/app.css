@@ -21,11 +21,11 @@
 }
 
 .filterBtn {
-    @apply text-sm font-medium text-white rounded-full text-center cursor-pointer hover:shadow-md;
+    @apply font-medium text-white rounded-full text-center cursor-pointer hover:shadow-md;
 }
 
 .label {
-    @apply text-sm font-bold rounded-full text-center tracking-wide uppercase cursor-default;
+    @apply font-bold rounded-full text-center tracking-wide uppercase cursor-default;
 }
 
 .wrapper-mobile {

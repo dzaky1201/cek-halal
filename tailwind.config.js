@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
     purge: [
         "./resources/**/*.blade.php",
@@ -29,6 +30,10 @@ module.exports = {
             boxShadow: {
                 bottomNav: "0px -4px 4px 0px rgba(0, 0, 0, 0.1)",
             },
+        },
+        screens: {
+            'xs': '410px',
+            ...defaultTheme.screens,
         },
     },
     variants: {
