@@ -1,13 +1,15 @@
 @extends('layouts.layout')
 
 @section('doc_title')
-<title>Cek Halal Homepage</title>
+<title>Hasanah Homepage</title>
 @endsection
 
 @section('meta-tag')
     <meta name="description" 
-          content="Cek halal adalah aplikasi berbasis web untuk melakukan pencarian produk halal
-                   di Indonesia. Data yang didapatkan berasal dari situs resmi MUI.">
+          content="Hasanah adalah aplikasi berbasis web untuk melakukan pencarian produk halal
+                   di Indonesia. Data yang didapatkan berasal dari situs resmi MUI. Web ini dibuat oleh
+                   Awardee beasiswa Yaumi Digital School 2021 untuk memudahkan ummat muslim di Indonesia
+                   dalam melakukan pencarian produk halal.">
     <meta name="robots" content="index, follow" />
 @endsection
 
@@ -15,20 +17,14 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 @endsection
 
-@section('header')
-<header class="w-full bg-bg_large ">
-    <nav class="header max-w-mobile mx-auto flex justify-center items-center">
-        <h1 class="text-xl font-semibold font-primary">Cek Halal</h1>
-    </nav>
-</header>
-@endsection
 
 @section('content')
-<div id="search-main" class="w-11/12 mb-36">
-    <img class="mx-auto mt-14" src="https://picsum.photos/id/1068/121" alt="Logo">
-    <div class="mt-10">
+<div id="main" class="w-11/12 -mt-1.5 mb-20">
+    <img class="mx-auto mt-24" src="{{ asset('src/img/logo/brand-logo.png') }}" alt="Logo">
+    <div id="search" class="mt-10">
         <form class="mx-1 flex flex-col justify-center" action="/product-list">
-            <input class="mt-2 form-input w-full border-2 font-primary text-sm" type="text" name="search" id="search"
+            <input 
+                class="mt-2 form-input w-full border-2 font-primary text-sm focus:border-primary-100" type="text" name="search" id="search"
                 placeholder="Masukkan nama produk" required value="{{request('search')}}">
             <button class="btn w-40 mt-8 mx-auto flex items-center justify-center font-medium" type="submit">
                 Cari
@@ -43,9 +39,18 @@
             </button>
         </form>
     </div>
+    <div class="font-primary my-9 text-sm mx-auto">
+        <p class="text-center leading-4 font-medium">
+            Anda tertarik untuk melihat hasil ulasan<br> 
+            komunitas mengenai keterangan produk?<br>
+            <span class="text-primary-100 font-bold leading-5">
+                <a href="">Menuju ulasan komunitas</a>
+            <span>
+        </p>
+    </div>
     <hr class="mt-6 border-t-2 border-gray-secondary">
     {{-- Slider using swiper.js --}}
-    <div class="swiper halal-slider mt-8">
+    <div class="swiper halal-slider mt-8 shadow-lg">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img class="rounded-lg object-cover w-full h-56" src="{{ asset('/src/img/slider1-fruit.jpg') }}"
@@ -91,6 +96,10 @@
         </div>
         <div class="swiper-pagination"></div>
     </div>
+    <footer class="mt-24 mx-auto text-center">
+        <h2 class="text-primary inline mr-1 tracking-wide">Powered By</h2>
+        <img src="{{ asset('src/img/logo/yaumi-logo.png') }}" alt="yaumi-logo" class="inline h-12 w-12">
+    </footer>
 </div>
 
 
@@ -98,6 +107,10 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.halal-slider', {
+    autoplay: {
+        delay: 2500,
+    },
+    speed: 1200,
      // Disable preloading of all images
     preloadImages: false,
     // Enable lazy loading

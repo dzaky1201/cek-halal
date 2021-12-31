@@ -12,18 +12,18 @@
 @section('content')
 <div class="mb-12 w-full xs:mt-14 xs:w-11/12">
     <div id="product-detail" 
-         class="
-         w-full flex flex-col content-center
-         xs:justify-between xs:px-2 xs:flex-row">
-        <img class="
-            min-w-0 max-h-fit object-scale-down
-            xs:rounded-lg xs:flex-auto xs:max-h-48" 
-            src="{{ asset('src/img/noodle-soup.jpg') }}"
-            alt="food">
-        <div id="product-desc" 
-             class="
-             w-11/12 mx-auto mt-6 text-center px-1.5
-             xs:flex-auto xs:ml-5 xs:-mt-1 xs:px-0">
+    class="
+    w-full flex flex-col content-center
+    xs:justify-between xs:px-2 xs:flex-row">
+    <img class="
+        min-w-0 max-h-fit object-scale-down
+        xs:rounded-lg xs:flex-auto xs:max-h-52" 
+        src="{{ asset('src/img/noodle-soup.jpg') }}"
+        alt="{{$product->name}}">
+    <div id="product-desc" 
+            class="
+            w-11/12 mx-auto mt-6 text-center px-1.5 
+            xs:flex-auto xs:ml-5 xs:-mt-1 xs:px-0 xs:pt-3 xs:w-3/4">
             <div class="text-left">
                 <h1 class="font-bold text-xl font-primary">{{$product->name}}</h1>
                 <h2 class="text-gray-secondary font-medium font-primary text-sm mt-2 xs:mt-0">
