@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-  @include('layouts.header', ['title' => "Cek Halal", 'path' => "/home"])
+@include('layouts.header', ['title' => "Cek Halal", 'path' => "/home"])
 @endsection
 
 @section('content')
@@ -28,46 +28,48 @@
         </form>
     </div>
     <div id="filter" class="w-11/12 mt-6">
-      <h1 class="inline ml-2">Pilih Kategori: </h1>
-      <div id="dropdown" 
-           class="relative inline ml-2 bg-white font-primary text-black_ori cursor-pointer">
-          <button onclick="showFilter()" 
-                  class="inline-flex justify-between border rounded-md p-2 border-primary-100 font-primary 
+        <h1 class="inline ml-2">Pilih Kategori: </h1>
+        <div id="dropdown" class="relative inline ml-2 bg-white font-primary text-black_ori cursor-pointer">
+            <button onclick="showFilter()" class="inline-flex justify-between border rounded-md p-2 border-primary-100 font-primary
                          w-3/6 text-left text-primary-100 bg-white">
-            Filter
-            <svg id="arrow" xmlns="http://www.w3.org/2000/svg" 
-                 class="h-6 w-6 inline-block transform duration-200" 
-                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div id="dropdown-content" 
-               class="hidden absolute bg-white overflow-auto w-44 border-black z-10 left-0 shadow-xl
-                      xs:w-48">
-            <form action="/product-list">
-              <button 
-                class="font-primary text-left p-3 w-full no-underline block text-black_ori hover:bg-gray-300">
-                Semua
-            </button>
-              <input type="hidden" id="all" name="all" value="true">
-            </form>
-            <form action="/product-list">
-              <button 
-                class="font-primary text-left p-3 w-full no-underline block text-black_ori hover:bg-gray-300">
+                @if (request('is_halal') == 'true')
                 Tersertifikasi Halal
-            </button>
-              <input type="hidden" id="is_halal" name="is_halal" value="true">
-            </form>
-            <form action="/product-list">
-              <button 
-                class="font-primary text-left p-3 w-full no-underline block text-black_ori hover:bg-gray-300">
+                @elseif (request('is_halal') == 'false')
                 Belum Tersertifikasi
+                @else
+                Semua
+                @endif
+                <svg id="arrow" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block transform duration-200"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
             </button>
-              <input type="hidden" id="is_halal" name="is_halal" value="false">
-            </form>
-          </div>
+            <div id="dropdown-content" class="hidden absolute bg-white overflow-auto w-44 border-black z-10 left-0 shadow-xl
+                      xs:w-48">
+                <form action="/product-list">
+                    <button
+                        class="font-primary text-left p-3 w-full no-underline block text-black_ori hover:bg-gray-300">
+                        Semua
+                    </button>
+                    <input type="hidden" id="all" name="all" value="true">
+                </form>
+                <form action="/product-list">
+                    <button
+                        class="font-primary text-left p-3 w-full no-underline block text-black_ori hover:bg-gray-300">
+                        Tersertifikasi Halal
+                    </button>
+                    <input type="hidden" id="is_halal" name="is_halal" value="true">
+                </form>
+                <form action="/product-list">
+                    <button
+                        class="font-primary text-left p-3 w-full no-underline block text-black_ori hover:bg-gray-300">
+                        Belum Tersertifikasi
+                    </button>
+                    <input type="hidden" id="is_halal" name="is_halal" value="false">
+                </form>
+            </div>
         </div>
-     </div>
+    </div>
 
     @if ($products->count())
     <h2 class="ml-2 mt-6 font-bold tracking-wide">{{count($products)}} Produk ditemukan</h2>
@@ -87,13 +89,13 @@
                             {{$item->company->name}}</h4>
                         @if ($item->is_halal === 'true')
                         <p class="
-                            label text-xs py-1 px-1.5 mt-3 w-min bg-primary-200 text-primary-100 
+                            label text-xs py-1 px-1.5 mt-3 w-min bg-primary-200 text-primary-100
                             xs:text-sm xs:px-3 xs:mt-2">
                             Tersertifikasi Halal
                         </p>
                         @else
                         <p class="
-                            label text-xs py-1 px-1.5 mt-3 w-min bg-gray-secondary text-black_ori 
+                            label text-xs py-1 px-1.5 mt-3 w-min bg-gray-secondary text-black_ori
                             xs:text-sm xs:px-3 xs:mt-2">
                             Belum Tersertifikasi Halal
                         </p>
@@ -118,7 +120,7 @@
 @section('scripts')
 <script src="{{ asset('js/functions.js') }}"></script>
 <script>
-  function showFilter() {
+    function showFilter() {
   document.getElementById("dropdown-content").classList.toggle("hidden");
   document.getElementById("arrow").classList.toggle("rotate-180");
 }
