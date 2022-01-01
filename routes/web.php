@@ -39,3 +39,8 @@ Route::get('/product-list/{product}', [ProductListController::class, 'show'])->n
 Route::resource('/dashboard/products', ProductController::class)->middleware('auth');
 Route::resource('/dashboard/reviews', ReviewController::class)->middleware('auth');
 Route::resource('/dashboard/companies', CompanyController::class)->middleware('auth');
+
+// testing review detail
+Route::get('/review-detail', function () {
+    return view('app/review-detail');
+});
