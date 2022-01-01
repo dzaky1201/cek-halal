@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-@include('layouts.header', ['title' => "Cek Halal", 'path' => "/home"])
+@include('layouts.header', ['title' => "Cek Halal", 'path' => "/"])
 @endsection
 
 @section('content')

@@ -69,7 +69,7 @@ class ReviewController extends Controller
      */
     public function show(Review $review)
     {
-        //
+        return view('app.review-detail', ['review' => $review]);
     }
 
     /**
