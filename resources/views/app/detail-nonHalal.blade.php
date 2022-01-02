@@ -16,7 +16,7 @@
          xs:justify-between xs:px-2 xs:flex-row">
         <img class="
             min-w-0 max-h-fit object-scale-down
-            xs:rounded-lg xs:flex-auto xs:max-h-52" src="{{ asset('src/img/noodle-soup.jpg') }}" alt="food">
+            xs:rounded-lg xs:flex-auto xs:max-h-52" src="{{asset('storage/'.$product->image)}}" alt="food">
         <div id="product-desc" class="
              w-11/12 mx-auto mt-6 text-center px-1.5
              xs:flex-auto xs:ml-5 xs:-mt-1 xs:px-0 xs:pt-3 xs:w-3/4">
@@ -64,7 +64,7 @@
                     <p class="text-sm text-justify mb-2 font-primary font-medium">
                         {{$item->content}}
                     </p>
-                    <a href="{{route('reviews.show',['review'=>$item->id])}}"
+                    <a href="{{route('product-list.showReview',['review'=>$item->id])}}"
                         class="font-primary text-primary-100 font-bold text-sm">
                         Lihat lebih lanjut
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none"

@@ -79,10 +79,10 @@
             <a href="{{route('product-list.show', ['product' => $item->id])}}">
                 <div class="card flex px-3 py-2.5 mt-4 mb-3 bg-gray-100 h-28 rounded-lg shadow-md">
                     {{-- Using image placeholder to set image width --}}
-                    {{-- <img class="rounded-lg w-24 object-scale-down" src="{{asset('storage/'.$item->image)}}"
-                        alt="{{$item->name}}"> --}}
-                    <img class="rounded-lg w-24 object-scale-down" src="{{asset('src/img/test-image.png')}}"
+                    <img class="rounded-lg w-24 object-scale-down" src="{{asset('storage/'.$item->image)}}"
                         alt="{{$item->name}}">
+                    {{-- <img class="rounded-lg w-24 object-scale-down" src="{{asset('src/img/test-image.png')}}"
+                        alt="{{$item->name}}"> --}}
                     <div class="ml-3 truncate">
                         <h3 class="font-bold font-primary truncate ...">{{$item->name}}</h3>
                         <h4 class="mt-1.5 truncate font-primary font-medium text-sm tracking-wide ...">

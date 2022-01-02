@@ -35,12 +35,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product-list', [ProductListController::class, 'index']);
 Route::get('/product-list/{product}', [ProductListController::class, 'show'])->name('product-list.show');
+Route::get('/product-list/review/{review}', [ProductListController::class, 'showReview'])->name('product-list.showReview');
 
 Route::resource('/dashboard/products', ProductController::class)->middleware('auth');
 Route::resource('/dashboard/reviews', ReviewController::class)->middleware('auth');
 Route::resource('/dashboard/companies', CompanyController::class)->middleware('auth');
-
-// testing review detail
-Route::get('/review-detail', function () {
-    return view('app/review-detail');
-});

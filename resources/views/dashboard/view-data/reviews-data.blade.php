@@ -50,7 +50,7 @@
                     {{-- review content --}}
                     {{-- product desc --}}
                     <div class="flex px-4 pt-3 h-20 rounded-lg items-center">
-                        <img class="rounded-lg h-12 w-12" src="{{ asset('src/img/noodle.png') }}" alt="food">
+                        <img class="rounded-lg h-12 w-12" src="{{asset('storage/'.$review->image)}}" alt="food">
                         <div class="ml-3 truncate items-center">
                             <div>
                                 <h3 class="font-bold font-primary my-1 text-sm">{{$review->product->name}}</h3>
@@ -68,7 +68,7 @@
                         <p class="text-xs text-primary-100 mt-3">
                             Sumber:
                             <span>
-                                <a href="halal.com/infohalal" class="underline">
+                                <a href="#" class="underline">
                                     {{$review->url_source}}
                                 </a>
                             </span>

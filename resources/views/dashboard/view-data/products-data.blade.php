@@ -18,7 +18,7 @@
             @foreach ($products as $item)
             <div class="product mb-4">
                 <div class="card flex p-3 h-28 bg-gray-100 rounded-lg shadow-md">
-                    <img class="rounded-lg" src="{{ asset('src/img/noodle.png') }}" alt="food">
+                    <img class="rounded-lg" src="{{asset('storage/'.$item->image)}}" alt="food">
                     <div class="justify-start flex w-full flex-wrap">
                         <div class="ml-3 truncate w-60">
                             <h3 class="font-bold font-primary mb-2 truncate ...">{{$item->name}}</h3>

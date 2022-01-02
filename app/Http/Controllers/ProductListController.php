@@ -23,4 +23,9 @@ class ProductListController extends Controller
             return view('app.detail-nonHalal', ['product' => $product, 'detail' => $detail]);
         }
     }
+
+    public function showReview(Review $review)
+    {
+        return view('app.review-detail', ['review' => $review]);
+    }
 }

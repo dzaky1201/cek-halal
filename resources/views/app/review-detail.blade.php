@@ -18,7 +18,7 @@
     </div>
     <div id="product-detail" class="flex flex-col xs:px-2 xs:flex-row ">
         <img class="
-            rounded-lg max-h-32 object-scale-down mb-5 xs:mb-0 " src="{{ asset('src/img/noodle-soup.jpg') }}" {{--
+            rounded-lg max-h-32 object-scale-down mb-5 xs:mb-0 " src="{{asset('storage/'.$review->image)}}" {{--
             alt="{{$product->name}}"> --}}
         alt="food">
         <div id="product-desc" class="
@@ -42,7 +42,8 @@
                     {{$review->content}}
                 </p>
             </div>
-            <a class="font-primary text-xs font-semibold tracking-wide text-primary-100 underline" href="">
+            <a class="font-primary text-xs font-semibold tracking-wide text-primary-100 underline"
+                href="{{$review->url_source}}">
                 Sumber: {{$review->url_source}}
             </a>
         </div>

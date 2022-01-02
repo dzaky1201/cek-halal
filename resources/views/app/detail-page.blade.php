@@ -11,18 +11,14 @@
 
 @section('content')
 <div class="mb-12 w-full xs:mt-14 xs:w-11/12">
-    <div id="product-detail" 
-    class="
+    <div id="product-detail" class="
     w-full flex flex-col content-center
     xs:justify-between xs:px-2 xs:flex-row">
-    <img class="
+        <img class="
         min-w-0 max-h-fit object-scale-down
-        xs:rounded-lg xs:flex-auto xs:max-h-52" 
-        src="{{ asset('src/img/noodle-soup.jpg') }}"
-        alt="{{$product->name}}">
-    <div id="product-desc" 
-            class="
-            w-11/12 mx-auto mt-6 text-center px-1.5 
+        xs:rounded-lg xs:flex-auto xs:max-h-52" src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}">
+        <div id="product-desc" class="
+            w-11/12 mx-auto mt-6 text-center px-1.5
             xs:flex-auto xs:ml-5 xs:-mt-1 xs:px-0 xs:pt-3 xs:w-3/4">
             <div class="text-left">
                 <h1 class="font-bold text-xl font-primary">{{$product->name}}</h1>
@@ -34,10 +30,8 @@
                 <h3 class="text-xs italic text-primary-100">Nomer Sertifikat : {{$product->certification_number}}</h3>
                 <h3 class="text-xs italic text-primary-100">Expired Date : {{$product->expire_date}}</h3>
             </div>
-            <button 
-                class="label px-4 py-1 text-sm mx-auto bg-primary-200 text-primary-100
-                        mt-7 xs:mt-3 xs:w-full" 
-                disabled="disabled">
+            <button class="label px-4 py-1 text-sm mx-auto bg-primary-200 text-primary-100
+                        mt-7 xs:mt-3 xs:w-full" disabled="disabled">
                 Tersertifikasi Halal
             </button>
         </div>
